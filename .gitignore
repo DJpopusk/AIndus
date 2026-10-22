@@ -1,0 +1,53 @@
+node_modules/
+.cache/
+test/e2e/.profile*/
+test/e2e/out/
+test/e2e/media/*.webm
+# third-party assets are downloaded by scripts/fetch-assets.sh
+extension/vendor/
+extension/assets/models/
+extension/assets/songs/*.ogg
+# original Sketchfab models before compression (scripts/compress-models.py); third-party, not published
+assets-src/
+.DS_Store
+__pycache__/
+training/.hf/
+training/fairface/
+training/emb_*.json
+training/*_list.json
+training/head_*.json
+training/prompts_*.json
+training/openverse/
+training/hfdance/
+training/commons/
+training/reelsim/
+training/calib_img/
+training/contact_*.jpg
+training/*.stdout
+training/*.log
+training/georgian_candidates.json
+training/commons_categories_probe.json
+training/openverse_*/
+training/hfgeneric/
+dist/
+training/*_candidates.json
+training/media_list.json
+training/reelsim_list.json
+
+# shared dataset server: local wrangler database and secrets
+server/.wrangler/
+server/.dev.vars
+server/node_modules/
+
+# frames of other people's reels from dataset exports, the exports themselves, local secrets
+training/user_data/
+*.zip
+.env
+
+# local Claude Code state (session logs) and working notes
+.claude/
+plan/
+temp/
+# local-only docs: privacy policy draft and store publishing notes
+PRIVACY.md
+PUBLISHING.md

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fake Reels</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: sans-serif; }
+  #feed { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
+  .reel { height: 100vh; scroll-snap-align: start; display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .reel video { height: 90vh; aspect-ratio: 9/16; background: #222; border-radius: 8px; }
+  .actions { display: flex; flex-direction: column; gap: 12px; align-self: flex-end; padding-bottom: 5vh; }
+  .actions [role=button] { cursor: pointer; }
+  .small svg { width: 12px; height: 12px; }
+</style>
+</head>
+<body>
+<div id="feed">
+  <section class="reel" data-reel="bhangra">
+    <video src="/test/bhangra.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions">
+      <div role="button" tabindex="0" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.6-9-9C1.2 8 3 4 7 4c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 5.8 4 4 8-2 4.4-9 9-9 9z"/></svg></div>
+      <div role="button" tabindex="0" class="small"><svg aria-label="Like" width="12" height="12" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="8"/></svg></div>
+    </div>
+  </section>
+  <section class="reel" data-reel="cat">
+    <video src="/test/cat.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+  <section class="reel" data-reel="bollywood">
+    <video src="/test/bollywood.webm" muted loop playsinline preload="auto"></video>
+    <!-- no like button here: this checks the double-click fallback -->
+  </section>
+  <section class="reel" data-reel="mixed">
+    <video src="/test/mixed.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+  <section class="reel" data-reel="family">
+    <video src="/test/family.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+  <section class="reel" data-reel="georgian">
+    <video src="/test/georgian.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+  <section class="reel" data-reel="arab">
+    <video src="/test/arab.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+  <section class="reel" data-reel="portrait">
+    <video src="/test/portrait.webm" muted loop playsinline preload="auto"></video>
+    <div class="actions"><div role="button" class="like"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="10"/></svg></div></div>
+  </section>
+</div>
+<script>
+  window.__likes = [];
+  // like Instagram: only the reel on screen plays, the others are paused
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    const v = e.target.querySelector('video');
+    if (e.intersectionRatio > 0.6) { v.play().catch(() => {}); } else { v.pause(); }
+  }), { root: document.getElementById('feed'), threshold: [0, 0.6, 1] });
+  document.querySelectorAll('.reel').forEach((r) => io.observe(r));
+  document.querySelectorAll('.like').forEach((b) => b.addEventListener('click', () => {
+    const svg = b.querySelector('svg');
+    svg.setAttribute('aria-label', svg.getAttribute('aria-label') === 'Like' ? 'Unlike' : 'Like');
+    window.__likes.push('button:' + b.closest('.reel').dataset.reel);
+  }));
+  document.querySelectorAll('video').forEach((v) => v.addEventListener('dblclick', () => window.__likes.push('dblclick:' + v.closest('.reel').dataset.reel)));
+</script>
+</body>
+</html>

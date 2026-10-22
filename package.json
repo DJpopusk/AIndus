@@ -1,0 +1,23 @@
+{
+  "name": "aindu",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ИИндуизация — расширение для Chrome: модель ИИндус смотрит рилсы, находит индусов, лайкает и запускает танцы",
+  "scripts": {
+    "assets": "scripts/fetch-assets.sh",
+    "test": "node test/e2e/run.js",
+    "test:headed": "HEADLESS=0 node test/e2e/run.js",
+    "real": "node test/e2e/real.js",
+    "real:youtube": "node test/e2e/real.js youtube",
+    "browser": "npx @puppeteer/browsers install chrome@stable --path ./.cache/browsers",
+    "train": "cd training && python3 fairface_dl.py && node embed.mjs b32 ff_train_list.json emb_ff_train_b32.json && node embed.mjs b32 ff_val_list.json emb_ff_val_b32.json && node text_embed.mjs b32 && python3 train_head.py b32 && python3 hf_dance_dl.py && python3 hf_generic_dl.py && python3 openverse_dl.py dance && python3 openverse_dl.py lifestyle && python3 build_scene_list.py && node embed.mjs b32 scene_list.json emb_scene_b32.json --crops && python3 train_scene.py",
+    "pack": "scripts/pack.sh",
+    "music": "python3 scripts/add-music.py",
+    "firefox": "scripts/build-firefox.sh",
+    "firefox:run": "scripts/build-firefox.sh --run"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "@huggingface/transformers": "^3.8.0"
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>ИИндуизация</title>
+    <style>
+      :root { color-scheme: dark; }
+      body { width: 300px; margin: 0; padding: 14px 16px 16px; font: 13px/1.4 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #f2f2f2; background: linear-gradient(160deg, #1b1208 0%, #14100c 45%, #0b1a0c 100%); }
+      h1 { margin: 0 0 2px; font-size: 20px; letter-spacing: .04em;
+        background: linear-gradient(90deg, #ff9933, #fff 50%, #138808); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .sub { margin: 0 0 12px; color: #bbb; font-size: 12px; }
+      .row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .row label { flex: 1; }
+      .row small { display: block; color: #999; font-size: 11px; }
+      input[type=checkbox] { width: 38px; height: 22px; appearance: none; background: #444; border-radius: 999px; position: relative; cursor: pointer; transition: background .2s; }
+      input[type=checkbox]::after { content: ''; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .2s; }
+      input[type=checkbox]:checked { background: #ff9933; }
+      input[type=checkbox]:checked::after { transform: translateX(16px); }
+      input[type=range] { width: 130px; accent-color: #ff9933; }
+      .val { display: inline-block; min-width: 34px; text-align: right; color: #ffb366; font-variant-numeric: tabular-nums; }
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 12px 0 10px; }
+      .stat { background: rgba(255,255,255,.06); border-radius: 8px; padding: 8px 6px; text-align: center; }
+      .stat b { display: block; font-size: 18px; color: #fff; }
+      .stat span { font-size: 11px; color: #aaa; }
+      .model { display: flex; align-items: center; gap: 8px; margin: 6px 0 10px; font-size: 12px; color: #ccc; }
+      .dot { width: 9px; height: 9px; border-radius: 50%; background: #666; flex: none; }
+      .dot.ready { background: #35c24b; box-shadow: 0 0 8px #35c24b; }
+      .dot.loading { background: #ffb020; animation: blink .8s infinite alternate; }
+      .dot.error { background: #e0392e; }
+      @keyframes blink { to { opacity: .3; } }
+      .btns { display: flex; gap: 8px; }
+      button { flex: 1; padding: 8px 6px; border: 0; border-radius: 8px; font-weight: 600; cursor: pointer; color: #1a0e00; background: linear-gradient(90deg, #ff9933, #ffc266); }
+      button.secondary { background: rgba(255,255,255,.12); color: #fff; }
+      button:disabled { opacity: .5; cursor: default; }
+      details.learn { margin: 10px 0 2px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 8px; }
+      details.learn summary { cursor: pointer; font-weight: 600; list-style: revert; user-select: none; padding: 2px 0; }
+      details.learn summary::marker { color: #ff9933; }
+      details.learn summary b { color: #ffb366; font-weight: 600; }
+      details.learn .hint { margin: 6px 0 8px; font-size: 11px; color: #999; line-height: 1.35; }
+      .btns.small button { padding: 6px 4px; font-size: 12px; }
+      .shots { display: flex; gap: 4px; margin: 8px 0; min-height: 34px; flex-wrap: wrap; }
+      .shots img { width: 30px; height: 30px; object-fit: cover; border-radius: 4px; border: 2px solid #555; }
+      .shots img.yes { border-color: #35c24b; }
+      .shots img.no { border-color: #e0392e; }
+      .shots .empty { font-size: 11px; color: #777; align-self: center; }
+      #lnResult { font-size: 11px; color: #bbb; min-height: 13px; margin-top: 6px; }
+      #lnResult b { color: #ffb366; }
+      #share[hidden], #shConsent[hidden] { display: none; }
+      #shConsent { margin: 6px 0 4px; padding: 8px 9px; border-radius: 8px; background: rgba(255,153,51,.1); border: 1px solid rgba(255,153,51,.35); font-size: 11px; line-height: 1.4; color: #ddd; }
+      #shConsent b { color: #ffb366; }
+      #shConsent ul { margin: 4px 0 6px; padding-left: 16px; }
+      #shConsent a { color: #ffb366; }
+      #shConsent .btns { margin-top: 6px; }
+      select { background: #2a2118; color: #f2f2f2; border: 1px solid rgba(255,255,255,.18); border-radius: 7px; padding: 4px 6px; font: inherit; font-size: 12px; cursor: pointer; }
+      select:focus { outline: 1px solid #ff9933; }
+      .credits { margin: 8px 0 0; font-size: 11px; text-align: right; }
+      .credits a { color: #ffb366; text-decoration: none; }
+      #result { margin-top: 10px; font-size: 12px; color: #ddd; white-space: pre-wrap; min-height: 14px; }
+      #result b { color: #ffb366; }
+    </style>
+  </head>
+  <body>
+    <h1>ИИНДУИЗАЦИЯ</h1>
+    <p class="sub">Модель ИИндус смотрит рилсы вместе с тобой.</p>
+
+    <div class="row"><label for="enabled">Включено<small>сканировать рилсы</small></label><input type="checkbox" id="enabled" /></div>
+    <div class="row"><label for="autoLike">Автолайк<small>сам жмёт лайк; Instagram такое запрещает, поэтому выключен</small></label><input type="checkbox" id="autoLike" /></div>
+    <div class="row"><label for="effects">Эффекты<small>танцы, порошок, эмодзи</small></label><input type="checkbox" id="effects" /></div>
+    <div class="row"><label for="sound">Музыка</label><input type="checkbox" id="sound" /></div>
+    <div class="row"><label for="volume">Громкость</label><span class="val" id="volumeVal"></span><input type="range" id="volume" min="0" max="1" step="0.05" /></div>
+    <div class="row"><label for="threshold">Порог ИИндуса<small>ниже — чаще срабатывает</small></label><span class="val" id="thresholdVal"></span><input type="range" id="threshold" min="0.2" max="0.9" step="0.05" /></div>
+    <div class="row"><label for="interval">Частота кадров<small>реал-тайм: как часто ИИндус смотрит</small></label><span class="val" id="intervalVal"></span><input type="range" id="interval" min="200" max="2000" step="100" /></div>
+    <div class="row"><label for="autoScroll">Автопролистывание<small>ИИндус сам листает ленту</small></label><input type="checkbox" id="autoScroll" /></div>
+    <div class="row"><label for="skipAfter">Скип не-индуса<small>через сколько секунд листать</small></label><span class="val" id="skipAfterVal"></span><input type="range" id="skipAfter" min="2" max="15" step="1" /></div>
+    <div class="row"><label for="dwell">Смотреть индуса<small>сколько секунд перед следующим</small></label><span class="val" id="dwellVal"></span><input type="range" id="dwell" min="5" max="60" step="5" /></div>
+    <div class="row"><label for="compute">Где считать ИИндуса<small id="computeInfo">авто: видеокарта, если браузер даёт WebGPU</small></label>
+      <select id="compute"><option value="auto">Авто</option><option value="gpu">Видеокарта</option><option value="cpu">Процессор</option></select></div>
+    <div class="row"><label for="graphics">Графика<small id="gfxInfo">авто: сама снижает качество, если кадры не успевают</small></label>
+      <select id="graphics"><option value="auto">Авто</option><option value="high">Высокая</option><option value="medium">Средняя</option><option value="low">Экономная</option></select></div>
+    <div class="row"><label for="hiPrecision">Полная точность<small>fp32: +2 % полноты, вдвое медленнее, качать 351 МБ</small></label><input type="checkbox" id="hiPrecision" /></div>
+    <div class="row"><label for="gods">Боги<small>Вишну, Шива, Ганеша, Кали… парят с нимбом</small></label><input type="checkbox" id="gods" /></div>
+    <div class="row"><label for="backdrop">Фон<small>Варанаси, Мумбаи, Дели, Джайпур… рилс остаётся видно</small></label><input type="checkbox" id="backdrop" /></div>
+    <div class="row"><label for="animals">Животные<small>слон, верблюд, тигр, зебу, обезьяны на фоне</small></label><input type="checkbox" id="animals" /></div>
+    <div class="row"><label for="traffic">Улица<small>тук-туки, мопеды с седоками, собаки</small></label><input type="checkbox" id="traffic" /></div>
+    <div class="row"><label for="cows">Коровы<small>танцуют Polish Dance по бокам</small></label><input type="checkbox" id="cows" /></div>
+    <div class="row"><label for="fall">Что сыплется<small>сверху во время праздника</small></label>
+      <select id="fall"><option value="theme">По теме</option><option value="confetti">Конфетти</option><option value="petals">Лепестки бархатцев</option>
+        <option value="gulal">Гулал (порошок Холи)</option><option value="sparks">Искры Дивали</option><option value="rupees">Дождь из рупий</option>
+        <option value="emoji">Эмодзи (как было)</option><option value="none">Ничего</option></select></div>
+    <div class="row"><label for="fx">Интенсивность<small>огонь, конфетти, пульсация</small></label><span class="val" id="fxVal"></span><input type="range" id="fx" min="0.5" max="2" step="0.25" /></div>
+    <div class="row"><label for="dancers">Танцоров</label><span class="val" id="dancersVal"></span><input type="range" id="dancers" min="14" max="24" step="1" /></div>
+
+    <details class="learn" id="learn">
+      <summary>Дообучение на своей ленте <b id="lnCount">0</b></summary>
+      <p class="hint">Открой рилсы и скажи ИИндусу, прав ли он насчёт последнего кадра. Личная модель учится на числовом описании кадра (512 чисел). Сам кадр с меткой копится в датасет — в браузере, наружу ничего не уходит, пока не нажмёшь «Скачать датасет». Можно выключить ниже.</p>
+      <div class="btns small">
+        <button id="lnYes">🇮🇳 Индус</button>
+        <button id="lnNo" class="secondary">🚫 Не индус</button>
+      </div>
+      <div class="shots" id="lnShots"><span class="empty">примеров пока нет</span></div>
+      <div class="row"><label for="personalOn">Личная модель<small id="lnModel">не обучена</small></label><input type="checkbox" id="personalOn" /></div>
+      <div class="row"><label for="personalWeight">Доверие ей<small>0 — не слушать вовсе</small></label><span class="val" id="personalWeightVal"></span><input type="range" id="personalWeight" min="0" max="0.8" step="0.05" /></div>
+      <div class="btns small">
+        <button id="lnTrain">Обучить</button>
+        <button id="lnUndo" class="secondary">Отменить</button>
+        <button id="lnReset" class="secondary">Сбросить</button>
+      </div>
+      <div id="lnResult"></div>
+      <div class="row"><label for="collectDataset">Копить в датасет<small id="dsInfo">кадры с разметкой — для переобучения базовой модели</small></label><input type="checkbox" id="collectDataset" /></div>
+      <div class="btns small">
+        <button id="dsExport" class="secondary">Скачать датасет</button>
+        <button id="dsClear" class="secondary">Очистить датасет</button>
+      </div>
+      <div id="share" hidden>
+        <div class="row"><label for="shareDataset">Делиться разметкой<small id="shInfo">в общий датасет: только числа и метка, без кадров и ссылок</small></label><input type="checkbox" id="shareDataset" /></div>
+        <div id="shConsent" hidden>
+          <b>Помочь обучить ИИндуса?</b> Когда ты жмёшь «Индус» или «Не индус», на сервер проекта уйдёт:
+          <ul>
+            <li>числовой отпечаток кадра — 512 чисел модели CLIP (сам кадр по ним не восстановить);</li>
+            <li>твоя метка и что ИИндус думал до неё;</li>
+            <li>сайт (Instagram или YouTube), версии модели и расширения, дата;</li>
+            <li>случайный номер этой установки — чтобы ты мог удалить свои данные.</li>
+          </ul>
+          <b>Не уходит:</b> сами кадры, ссылки на рилсы, твой аккаунт, история просмотров. Ничего не уходит, пока ты сам не разметил кадр.
+          Данные нужны, чтобы переобучать базовую модель ИИндус; набор меток может быть опубликован открыто (без номеров установок).
+          Выключить можно в любой момент, кнопка ниже стирает всё отправленное.
+          <a href="PRIVACY_URL" target="_blank" id="shPolicy">Политика конфиденциальности</a>
+          <div class="btns small"><button id="shAgree">Согласен, делиться</button><button id="shCancel" class="secondary">Не надо</button></div>
+        </div>
+        <div class="btns small"><button id="shDelete" class="secondary">Удалить мои данные с сервера</button></div>
+      </div>
+    </details>
+    <p class="credits"><a href="credits.html" target="_blank">Авторы и лицензии</a></p>
+
+    <div class="stats">
+      <div class="stat"><b id="sScanned">0</b><span>рилсов</span></div>
+      <div class="stat"><b id="sIndian">0</b><span>индусов</span></div>
+      <div class="stat"><b id="sLiked">0</b><span>лайков</span></div>
+    </div>
+
+    <div class="model"><span class="dot" id="dot"></span><span id="modelText">модель не загружена</span></div>
+    <div class="btns">
+      <button id="warm">Загрузить модель</button>
+      <button id="test" class="secondary">Проверить вкладку</button>
+    </div>
+    <div id="result"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

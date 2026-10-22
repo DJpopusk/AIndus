@@ -1,0 +1,164 @@
+[
+ {
+  "kind": "pos",
+  "query": "Indian man portrait street",
+  "file": "img/pos_Indian_man_portrait_street_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/A_portrait_of_an_Indian_Man_in_Traditional_Kurta_Pyjama.jpg/960px-A_portrait_of_an_Indian_Man_in_Traditional_Kurta_Pyjama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Indian man portrait street",
+  "file": "img/pos_Indian_man_portrait_street_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Sikh_pilgrim_at_the_Golden_Temple_%28Harmandir_Sahib%29_in_Amritsar%2C_India.jpg/960px-Sikh_pilgrim_at_the_Golden_Temple_%28Harmandir_Sahib%29_in_Amritsar%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Delhi street crowd",
+  "file": "img/pos_Delhi_street_crowd_0.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Annual_prayer_at_the_Jumma_Musjid%2C_Delhi_%28c._1902-1910%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ {
+  "kind": "pos",
+  "query": "Delhi street crowd",
+  "file": "img/pos_Delhi_street_crowd_1.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Delhi_crowd_from_Jama_masjid_tower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ {
+  "kind": "pos",
+  "query": "Bollywood actor",
+  "file": "img/pos_Bollywood_actor_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Bollywood_Actor_Aroon_Bakshi_by_Camaal_Fotografia_Andheri.jpg/960px-Bollywood_Actor_Aroon_Bakshi_by_Camaal_Fotografia_Andheri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Indian family photo",
+  "file": "img/pos_Indian_family_photo_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/1920s_An_Indian_Family%2C_Trinidad_B.W.I.jpg/960px-1920s_An_Indian_Family%2C_Trinidad_B.W.I.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Indian family photo",
+  "file": "img/pos_Indian_family_photo_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Andaman_Islands%2C_Neil%2C_Indian_family_on_the_coast_during_sunset.jpg/960px-Andaman_Islands%2C_Neil%2C_Indian_family_on_the_coast_during_sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Mumbai local train people",
+  "file": "img/pos_Mumbai_local_train_people_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Local_Mumbai_Train.jpg/960px-Local_Mumbai_Train.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Mumbai local train people",
+  "file": "img/pos_Mumbai_local_train_people_1.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Mumbai_city_train_%286700131065%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ {
+  "kind": "pos",
+  "query": "Diwali celebration people",
+  "file": "img/pos_Diwali_celebration_people_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Diwali_Celebration.jpg/960px-Diwali_Celebration.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Diwali celebration people",
+  "file": "img/pos_Diwali_celebration_people_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Diwali_Celebration_%2848991005173%29.jpg/960px-Diwali_Celebration_%2848991005173%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Indian cricket fans",
+  "file": "img/pos_Indian_cricket_fans_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/A_Cricket_fan_at_the_Chepauk_stadium%2C_Chennai.jpg/960px-A_Cricket_fan_at_the_Chepauk_stadium%2C_Chennai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "pos",
+  "query": "Indian cricket fans",
+  "file": "img/pos_Indian_cricket_fans_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/IIFA_Weekend_2007_cricket_fans.jpg/960px-IIFA_Weekend_2007_cricket_fans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Russian man portrait",
+  "file": "img/neg_Russian_man_portrait_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/A_man_carries_a_huge_hammerhead_through_the_streets_of_Mogadishu.jpg/960px-A_man_carries_a_huge_hammerhead_through_the_streets_of_Mogadishu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Russian man portrait",
+  "file": "img/neg_Russian_man_portrait_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Dagestani_man_and_woman.jpg/960px-Dagestani_man_and_woman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Moscow street people",
+  "file": "img/neg_Moscow_street_people_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Moscow%2C_Arbat_Street%2C_Cherry_Pavilion%2C_people_June_2026_05.jpg/960px-Moscow%2C_Arbat_Street%2C_Cherry_Pavilion%2C_people_June_2026_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Moscow street people",
+  "file": "img/neg_Moscow_street_people_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Moscow%2C_Taganka%2C_people_April_2025_03.jpg/960px-Moscow%2C_Taganka%2C_people_April_2025_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Chinese woman portrait",
+  "file": "img/neg_Chinese_woman_portrait_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/-Portrait_of_an_Old_Chinese_Woman-_MET_DP155400.jpg/960px--Portrait_of_an_Old_Chinese_Woman-_MET_DP155400.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Chinese woman portrait",
+  "file": "img/neg_Chinese_woman_portrait_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/-Portrait_of_an_Old_Chinese_Woman-_MET_DP155400_%28cropped%29.jpg/960px--Portrait_of_an_Old_Chinese_Woman-_MET_DP155400_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Japanese street crowd",
+  "file": "img/neg_Japanese_street_crowd_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Actors_Portraits_Disguised_as_a_Street_Crowd_LACMA_M.2006.136.249.jpg/960px-Actors_Portraits_Disguised_as_a_Street_Crowd_LACMA_M.2006.136.249.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Japanese street crowd",
+  "file": "img/neg_Japanese_street_crowd_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Akihabara_Main_Street_officer_crowd_control.jpg/960px-Akihabara_Main_Street_officer_crowd_control.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Nigerian man portrait",
+  "file": "img/neg_Nigerian_man_portrait_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/ASC_Leiden_-_Rietveld_Collection_-_Nigeria_1970_-_1973_-_01_-_018_A_portrait_of_an_old_wise_man_with_a_beard_-_Ribina.jpg/960px-ASC_Leiden_-_Rietveld_Collection_-_Nigeria_1970_-_1973_-_01_-_018_A_portrait_of_an_old_wise_man_with_a_beard_-_Ribina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Nigerian man portrait",
+  "file": "img/neg_Nigerian_man_portrait_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/A_Nigerian_man_admiring_a_Pencil_painting_of_himself_made_by_a_local_artists.jpg/960px-A_Nigerian_man_admiring_a_Pencil_painting_of_himself_made_by_a_local_artists.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Arab man portrait",
+  "file": "img/neg_Arab_man_portrait_0.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Arab.man.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ {
+  "kind": "neg",
+  "query": "Arab man portrait",
+  "file": "img/neg_Arab_man_portrait_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Arab_old_man_portrait.jpg/960px-Arab_old_man_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Mexican family",
+  "file": "img/neg_Mexican_family_0.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Backyard_of_Mexican_family_with_old_truck%2C_Mexican_district%2C_San_Antonio%2C_Texas.jpg/960px-Backyard_of_Mexican_family_with_old_truck%2C_Mexican_district%2C_San_Antonio%2C_Texas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ {
+  "kind": "neg",
+  "query": "Mexican family",
+  "file": "img/neg_Mexican_family_1.jpg",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Mexican_family._Brawley_County%2C_Imperial_Valley%2C_California.jpg/960px-Mexican_family._Brawley_County%2C_Imperial_Valley%2C_California.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+]

@@ -1,0 +1,12 @@
+# Shared dataset server: Cloudflare Worker + D1. Deployment: server/README.md.
+name = "iindu-dataset"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "iindu-dataset"
+database_id = "00000000-0000-0000-0000-000000000000"   # replace with the id from `npx wrangler d1 create iindu-dataset`
+
+[vars]
+DAILY_CAP = "300"     # labels per day from one install: protection against junk and spam

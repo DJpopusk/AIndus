@@ -1,0 +1,559 @@
+{
+ "fps": 30,
+ "sources": {
+  "aist": {
+   "name": "AIST++",
+   "author": "Google LLC; AIST Dance Video Database",
+   "license": "CC BY 4.0",
+   "url": "https://google.github.io/aistplusplus_dataset/"
+  },
+  "100style": {
+   "name": "100STYLE",
+   "author": "Ian Mason, Sebastian Starke, Taku Komura",
+   "license": "CC BY 4.0",
+   "url": "https://www.ianxmason.com/100style/"
+  },
+  "cmu": {
+   "name": "CMU Graphics Lab Motion Capture Database",
+   "author": "Carnegie Mellon University (NSF EIA-0196217)",
+   "license": "можно включать в продукты, нельзя перепродавать сами данные",
+   "url": "http://mocap.cs.cmu.edu/"
+  }
+ },
+ "credit_cmu": "The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.",
+ "clips": [
+  {
+   "take": "gHO_sFM_cAll_d19_mHO5_ch06",
+   "title": "хаус (d19)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.25,
+   "kick": 56,
+   "from": 1.1,
+   "to": 12.3,
+   "seconds": 11.2
+  },
+  {
+   "take": "gJS_sFM_cAll_d01_mJS3_ch04",
+   "title": "стрит-джаз (d01)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.3,
+   "kick": 78,
+   "from": 9.9,
+   "to": 19.4,
+   "seconds": 9.5
+  },
+  {
+   "take": "gKR_sFM_cAll_d28_mKR2_ch03",
+   "title": "крамп (d28)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.16,
+   "kick": 95,
+   "from": 20.0,
+   "to": 27.1,
+   "seconds": 7.1
+  },
+  {
+   "take": "gKR_sFM_cAll_d29_mKR2_ch10",
+   "title": "крамп (d29)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.99,
+   "kick": 102,
+   "from": 2.0,
+   "to": 11.6,
+   "seconds": 9.6
+  },
+  {
+   "take": "gLH_sFM_cAll_d16_mLH4_ch05",
+   "title": "хип-хоп LA (d16)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.2,
+   "kick": 48,
+   "from": 14.3,
+   "to": 20.8,
+   "seconds": 6.5
+  },
+  {
+   "take": "gLH_sFM_cAll_d17_mLH4_ch12",
+   "title": "хип-хоп LA (d17)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.18,
+   "kick": 52,
+   "from": 8.6,
+   "to": 17.8,
+   "seconds": 9.2
+  },
+  {
+   "take": "gLO_sFM_cAll_d13_mLO2_ch03",
+   "title": "локинг (d13)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.03,
+   "kick": 84,
+   "from": 26.4,
+   "to": 34.8,
+   "seconds": 8.4
+  },
+  {
+   "take": "gLO_sFM_cAll_d14_mLO2_ch10",
+   "title": "локинг (d14)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.02,
+   "kick": 71,
+   "from": 9.7,
+   "to": 19.9,
+   "seconds": 10.2
+  },
+  {
+   "take": "gMH_sFM_cAll_d22_mMH3_ch04",
+   "title": "хип-хоп (d22)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.26,
+   "kick": 73,
+   "from": 26.6,
+   "to": 34.2,
+   "seconds": 7.6
+  },
+  {
+   "take": "gMH_sFM_cAll_d23_mMH3_ch11",
+   "title": "хип-хоп (d23)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.99,
+   "kick": 59,
+   "from": 7.6,
+   "to": 17.9,
+   "seconds": 10.3
+  },
+  {
+   "take": "gPO_sFM_cAll_d10_mPO1_ch02",
+   "title": "поппинг (d10)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.01,
+   "kick": 50,
+   "from": 9.2,
+   "to": 21.1,
+   "seconds": 11.9
+  },
+  {
+   "take": "gPO_sFM_cAll_d11_mPO1_ch09",
+   "title": "поппинг (d11)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.11,
+   "kick": 46,
+   "from": 13.6,
+   "to": 24.4,
+   "seconds": 10.8
+  },
+  {
+   "take": "gWA_sFM_cAll_d25_mWA0_ch01",
+   "title": "вакинг (d25)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.32,
+   "kick": 39,
+   "from": 21.4,
+   "to": 28.2,
+   "seconds": 6.8
+  },
+  {
+   "take": "gWA_sFM_cAll_d26_mWA0_ch08",
+   "title": "вакинг (d26)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.34,
+   "kick": 53,
+   "from": 14.4,
+   "to": 24.5,
+   "seconds": 10.1
+  },
+  {
+   "take": "gBR_sFM_cAll_d04_mBR0_ch01",
+   "title": "брейк (d04)",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.27,
+   "kick": 56,
+   "from": 4.3,
+   "to": 10.3,
+   "seconds": 6.0
+  },
+  {
+   "take": "Chicken_FW",
+   "title": "Курица",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.69,
+   "kick": 54,
+   "from": 16.0,
+   "to": 24.5,
+   "seconds": 8.5
+  },
+  {
+   "take": "Zombie_FW",
+   "title": "Зомби",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.24,
+   "kick": 23,
+   "from": 113.9,
+   "to": 121.1,
+   "seconds": 7.2
+  },
+  {
+   "take": "Robot_FW",
+   "title": "Робот",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.64,
+   "kick": 29,
+   "from": 63.0,
+   "to": 71.4,
+   "seconds": 8.4
+  },
+  {
+   "take": "Penguin_FW",
+   "title": "Пингвин",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.52,
+   "kick": 12,
+   "from": 141.9,
+   "to": 149.1,
+   "seconds": 7.2
+  },
+  {
+   "take": "Dinosaur_FW",
+   "title": "Динозавр",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.9,
+   "kick": 65,
+   "from": 47.1,
+   "to": 54.4,
+   "seconds": 7.3
+  },
+  {
+   "take": "Flapping_FW",
+   "title": "Машет крыльями",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.33,
+   "kick": 24,
+   "from": 54.0,
+   "to": 62.5,
+   "seconds": 8.5
+  },
+  {
+   "take": "WildArms_FW",
+   "title": "Дикие руки",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.15,
+   "kick": 22,
+   "from": 69.9,
+   "to": 76.2,
+   "seconds": 6.3
+  },
+  {
+   "take": "WiggleHips_FW",
+   "title": "Виляет бёдрами",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.68,
+   "kick": 24,
+   "from": 164.9,
+   "to": 170.9,
+   "seconds": 6.0
+  },
+  {
+   "take": "SwingShoulders_FW",
+   "title": "Плечами",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.91,
+   "kick": 26,
+   "from": 83.1,
+   "to": 89.2,
+   "seconds": 6.1
+  },
+  {
+   "take": "LawnMower_FW",
+   "title": "Газонокосилка",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.88,
+   "kick": 26,
+   "from": 79.2,
+   "to": 87.2,
+   "seconds": 8.0
+  },
+  {
+   "take": "Teapot_FW",
+   "title": "Чайник",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.28,
+   "kick": 25,
+   "from": 59.6,
+   "to": 67.4,
+   "seconds": 7.8
+  },
+  {
+   "take": "Superman_FW",
+   "title": "Супермен",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.16,
+   "kick": 27,
+   "from": 34.8,
+   "to": 44.6,
+   "seconds": 9.8
+  },
+  {
+   "take": "KarateChop_FW",
+   "title": "Каратист",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.88,
+   "kick": 26,
+   "from": 84.7,
+   "to": 92.7,
+   "seconds": 8.0
+  },
+  {
+   "take": "Swimming_FW",
+   "title": "Пловец",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.26,
+   "kick": 24,
+   "from": 75.5,
+   "to": 83.8,
+   "seconds": 8.3
+  },
+  {
+   "take": "Aeroplane_FW",
+   "title": "Самолётик",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.32,
+   "kick": 25,
+   "from": 82.4,
+   "to": 90.6,
+   "seconds": 8.2
+  },
+  {
+   "take": "WhirlArms_FW",
+   "title": "Мельница",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.28,
+   "kick": 20,
+   "from": 68.3,
+   "to": 74.9,
+   "seconds": 6.6
+  },
+  {
+   "take": "HighKnees_FW",
+   "title": "Высокие колени",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.69,
+   "kick": 77,
+   "from": 112.6,
+   "to": 118.6,
+   "seconds": 6.0
+  },
+  {
+   "take": "Monk_FW",
+   "title": "Монах",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.47,
+   "kick": 21,
+   "from": 92.9,
+   "to": 99.4,
+   "seconds": 6.5
+  },
+  {
+   "take": "55_12",
+   "title": "Танцующий медведь",
+   "source": "cmu",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.67,
+   "kick": 43,
+   "from": 1.1,
+   "to": 10.6,
+   "seconds": 9.5
+  },
+  {
+   "take": "55_20",
+   "title": "Бегемот-балерина",
+   "source": "cmu",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.33,
+   "kick": 62,
+   "from": 10.6,
+   "to": 16.6,
+   "seconds": 6.0
+  },
+  {
+   "take": "55_27",
+   "title": "Танцующий муравей",
+   "source": "cmu",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 0.89,
+   "kick": 30,
+   "from": 20.2,
+   "to": 29.6,
+   "seconds": 9.4
+  },
+  {
+   "take": "55_25",
+   "title": "Танцующий зверь",
+   "source": "cmu",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.06,
+   "kick": 73,
+   "from": 6.2,
+   "to": 15.1,
+   "seconds": 8.9
+  },
+  {
+   "take": "94_06",
+   "title": "Индийский танец 6",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.34,
+   "kick": 58,
+   "from": 4.7,
+   "to": 17.1,
+   "seconds": 12.4
+  },
+  {
+   "take": "94_09",
+   "title": "Индийский танец 9",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.32,
+   "kick": 55,
+   "from": 2.1,
+   "to": 13.0,
+   "seconds": 10.9
+  },
+  {
+   "take": "94_11",
+   "title": "Индийский танец 11",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.31,
+   "kick": 55,
+   "from": 17.2,
+   "to": 30.8,
+   "seconds": 13.6
+  },
+  {
+   "take": "94_16",
+   "title": "Индийский танец 16",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.17,
+   "kick": 73,
+   "from": 1.0,
+   "to": 14.9,
+   "seconds": 13.9
+  }
+ ]
+}

@@ -1,0 +1,314 @@
+[
+ {
+  "file": "amer_court.jpg",
+  "place": "Джайпур, двор форта Амер",
+  "horizon": 0.52,
+  "themes": [
+   "wedding",
+   "default",
+   "bhangra"
+  ],
+  "author": "Nagarjun",
+  "author_url": "https://www.flickr.com/photos/64924693@N00",
+  "title": "Courtyard",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/64924693@N00/6866984696",
+  "size": [
+   1024,
+   640
+  ]
+ },
+ {
+  "file": "amer_night.jpg",
+  "place": "Джайпур, форт Амер ночью",
+  "horizon": 0.53,
+  "themes": [
+   "diwali"
+  ],
+  "author": "Ashwin Kumar",
+  "author_url": "https://www.flickr.com/photos/34501870@N00",
+  "title": "Amer Fort",
+  "license": "by-sa 2.0",
+  "source": "https://www.flickr.com/photos/34501870@N00/26444277858",
+  "size": [
+   1024,
+   678
+  ]
+ },
+ {
+  "file": "diwali_gate.jpg",
+  "place": "Улица в огнях Дивали",
+  "horizon": 0.53,
+  "themes": [
+   "diwali"
+  ],
+  "author": "shankar s.",
+  "author_url": "https://www.flickr.com/photos/77742560@N06",
+  "title": "Little India- Serangoon Road",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/77742560@N06/7395363732",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "gateway_dusk.jpg",
+  "place": "Мумбаи, Ворота Индии в сумерках",
+  "horizon": 0.5,
+  "themes": [
+   "bollywood",
+   "spidey",
+   "default"
+  ],
+  "author": "Rohit Chhiber",
+  "author_url": "https://www.flickr.com/photos/44898393@N08",
+  "title": "Gateway of India, Mumbai",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/44898393@N08/5357311188",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "goa_beach.jpg",
+  "place": "Гоа, пляж",
+  "horizon": 0.48,
+  "themes": [
+   "holi",
+   "bhangra",
+   "street"
+  ],
+  "author": "samirluther",
+  "author_url": "https://www.flickr.com/photos/72958083@N00",
+  "title": "beach",
+  "license": "by-sa 2.0",
+  "source": "https://www.flickr.com/photos/72958083@N00/2828691305",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "jama_courtyard.jpg",
+  "place": "Дели, двор Джама-Масджид",
+  "horizon": 0.71,
+  "themes": [
+   "default",
+   "bhangra",
+   "wedding"
+  ],
+  "author": "archer10 (Dennis)",
+  "author_url": "https://www.flickr.com/photos/22490717@N02",
+  "title": "India-0226",
+  "license": "by-sa 2.0",
+  "source": "https://www.flickr.com/photos/22490717@N02/2214289243",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "kolkata_cows.jpg",
+  "place": "Калькутта, улица с коровами",
+  "horizon": 0.48,
+  "themes": [
+   "street",
+   "holi",
+   "default"
+  ],
+  "author": "David Pirmann",
+  "author_url": "https://www.flickr.com/photos/9905418@N05",
+  "title": "IN Kolkata street scene - 1963 (W63-K36-24)",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/9905418@N05/51625245226",
+  "size": [
+   1023,
+   682
+  ]
+ },
+ {
+  "file": "lotus_lawn.jpg",
+  "place": "Дели, Храм Лотоса",
+  "horizon": 0.55,
+  "themes": [
+   "default",
+   "wedding",
+   "bhangra"
+  ],
+  "author": "Ankur Panchbudhe",
+  "author_url": "https://www.flickr.com/photos/28747587@N00",
+  "title": "Lotus Temple, Delhi",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/28747587@N00/29652381522",
+  "size": [
+   1024,
+   576
+  ]
+ },
+ {
+  "file": "maidan_cricket.jpg",
+  "place": "Майдан, крикет",
+  "horizon": 0.52,
+  "themes": [
+   "cricket",
+   "bhangra"
+  ],
+  "author": "sowri",
+  "author_url": "https://www.flickr.com/photos/10485860@N00",
+  "title": "cricket@Tngar",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/10485860@N00/2228556362",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "marble_court.jpg",
+  "place": "Мраморный двор с садами",
+  "horizon": 0.55,
+  "themes": [
+   "wedding"
+  ],
+  "author": "Jorge Lascar",
+  "author_url": "https://www.flickr.com/photos/8721758@N06",
+  "title": "The Khas Mahal - Agra Fort",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/8721758@N06/4499208259",
+  "size": [
+   1024,
+   768
+  ]
+ },
+ {
+  "file": "mumbai_cst.jpg",
+  "place": "Мумбаи, у вокзала Чхатрапати Шиваджи",
+  "horizon": 0.6,
+  "themes": [
+   "bollywood",
+   "spidey",
+   "street"
+  ],
+  "author": "ruffin_ready",
+  "author_url": "https://www.flickr.com/photos/51668926@N00",
+  "title": "Mumbai street scene",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/51668926@N00/6409592653",
+  "size": [
+   1024,
+   666
+  ]
+ },
+ {
+  "file": "mysore_night.jpg",
+  "place": "Майсур, дворец в огнях",
+  "horizon": 0.62,
+  "themes": [
+   "diwali",
+   "wedding"
+  ],
+  "author": "Arian Zwegers",
+  "author_url": "https://www.flickr.com/photos/67769030@N07",
+  "title": "Mysore Palace",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/67769030@N07/8380405306",
+  "size": [
+   1024,
+   683
+  ]
+ },
+ {
+  "file": "mysore_walk.jpg",
+  "place": "Майсур, дворец",
+  "horizon": 0.64,
+  "themes": [
+   "wedding",
+   "default"
+  ],
+  "author": "Arian Zwegers",
+  "author_url": "https://www.flickr.com/photos/67769030@N07",
+  "title": "Mysore Palace",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/67769030@N07/9902607624",
+  "size": [
+   1024,
+   611
+  ]
+ },
+ {
+  "file": "rajpath.jpg",
+  "place": "Нью-Дели, Раджпат",
+  "horizon": 0.57,
+  "themes": [
+   "default",
+   "cricket",
+   "bhangra"
+  ],
+  "author": "Christian Haugen",
+  "author_url": "https://www.flickr.com/photos/34073237@N04",
+  "title": "Rajpath",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/34073237@N04/3291778855",
+  "size": [
+   1024,
+   682
+  ]
+ },
+ {
+  "file": "rajpath_gate.jpg",
+  "place": "Нью-Дели, Раджпат и Ворота Индии",
+  "horizon": 0.6,
+  "themes": [
+   "default",
+   "street",
+   "cricket"
+  ],
+  "author": "dalbera",
+  "author_url": "https://www.flickr.com/photos/72746018@N00",
+  "title": "Le Raj Path et l'India Gate (New Delhi)",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/72746018@N00/8480539344",
+  "size": [
+   1023,
+   682
+  ]
+ },
+ {
+  "file": "street_cricket.jpg",
+  "place": "Уличный крикет",
+  "horizon": 0.52,
+  "themes": [
+   "cricket",
+   "street"
+  ],
+  "author": "Dr Vipin Challiyil",
+  "author_url": "https://www.flickr.com/photos/11852045@N08",
+  "title": "happy harthal 2",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/11852045@N08/2272548119",
+  "size": [
+   1023,
+   658
+  ]
+ },
+ {
+  "file": "taj_gate_lawn.jpg",
+  "place": "Агра, ворота Тадж-Махала",
+  "horizon": 0.57,
+  "themes": [
+   "wedding",
+   "default"
+  ],
+  "author": "lpiepiora",
+  "author_url": "https://www.flickr.com/photos/40774173@N00",
+  "title": "Taj Mahal entrance gate",
+  "license": "by 2.0",
+  "source": "https://www.flickr.com/photos/40774173@N00/108064996",
+  "size": [
+   1024,
+   680
+  ]
+ }
+]
