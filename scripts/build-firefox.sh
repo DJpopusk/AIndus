@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds the Firefox variant of the extension into dist/firefox/ (and dist/iinduization-<ver>-firefox.zip).
+# Builds the Firefox variant of the extension into dist/firefox/ (and dist/aindus-<ver>-firefox.zip).
 #
 #   scripts/build-firefox.sh              build only
 #   scripts/build-firefox.sh --lint       build and run web-ext lint
@@ -39,7 +39,7 @@ m.pop('cross_origin_opener_policy', None)
 # data collection consent: since November 2025 AMO rejects new extensions without data_collection_permissions.
 # Nothing is collected by default; optional collection is embeddings of labelled frames for the shared dataset (websiteContent).
 m['browser_specific_settings'] = {'gecko': {
-    'id': os.environ.get('GECKO_ID', 'iinduization@aindu.local'), 'strict_min_version': '140.0',
+    'id': os.environ.get('GECKO_ID', 'aindus@aindus.local'), 'strict_min_version': '140.0',
     'data_collection_permissions': {'required': ['none'], 'optional': ['websiteContent']}},
     'gecko_android': {'strict_min_version': '142.0'}}           # on Android data collection consent starts at 142
 if mode == '--selftest':
@@ -110,7 +110,7 @@ print('манифест и страницы адаптированы')
 PY
 
 VER=$(python3 -c "import json;print(json.load(open('$OUT/manifest.json'))['version'])")
-ZIP="$ROOT/dist/iinduization-$VER-firefox.zip"
+ZIP="$ROOT/dist/aindus-$VER-firefox.zip"
 rm -f "$ZIP"; ( cd "$OUT" && zip -qr "$ZIP" . -x "*.DS_Store" )
 echo "собрано: $OUT"
 echo "архив:   $ZIP ($(du -h "$ZIP" | cut -f1))"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Builds the extension zip for the Chrome Web Store (or for loading unpacked).
-#   scripts/pack.sh            -> dist/iinduization-<version>.zip
+#   scripts/pack.sh            -> dist/aindus-<version>.zip
 #   scripts/pack.sh --no-models -> without the Sketchfab 3D models (mannequins dance; the dances stay)
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -8,7 +8,7 @@ EXT="$ROOT/extension"
 python3 "$(dirname "$0")/make-credits.py"     # credits are built from what actually goes into the archive
 VER=$(python3 -c "import json;print(json.load(open('$EXT/manifest.json'))['version'])")
 mkdir -p "$ROOT/dist"
-OUT="$ROOT/dist/iinduization-$VER.zip"
+OUT="$ROOT/dist/aindus-$VER.zip"
 rm -f "$OUT"
 EXCLUDE=(-x "*.DS_Store" -x "*/.git*")
 if [ "${1:-}" = "--no-models" ]; then EXCLUDE+=(-x "assets/models/*"); fi

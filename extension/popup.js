@@ -223,14 +223,14 @@ $('dsExport').addEventListener('click', async () => {
     files.push({ name: 'labels.csv', data: enc.encode(csv.join('\n') + '\n') });
     files.push({ name: 'meta.jsonl', data: enc.encode(meta.join('\n') + '\n') });
     files.push({ name: 'README.txt', data: enc.encode(
-      'Датасет ИИндуизации: кадры рилсов с разметкой пользователя (1 — индус, 0 — нет).\n' +
+      'Датасет AIndus: кадры рилсов с разметкой пользователя (1 — индус, 0 — нет).\n' +
       'images/ — кадры до 448 px; labels.csv — метки, оценка ИИндуса в момент разметки, ссылка на рилс;\n' +
       'meta.jsonl — то же плюс эмбеддинг CLIP B/32 (512 чисел, точность — в dtype).\n' +
       'Переобучить базовую модель: python3 training/import_user_dataset.py <этот zip> && python3 training/train_scene.py\n' +
       'Кадры — из чужих рилсов: для своего обучения, не для публикации.\n') });
     const url = URL.createObjectURL(makeZip(files));
     const stamp = new Date().toISOString().slice(0, 16).replace(/[T:]/g, '-');
-    await chrome.downloads.download({ url, filename: `iinduization-dataset-${stamp}.zip`, saveAs: false });
+    await chrome.downloads.download({ url, filename: `aindus-dataset-${stamp}.zip`, saveAs: false });
     $('dsInfo').textContent = `скачано: ${rows.length} кадров`;
   } catch (e) { $('dsInfo').textContent = 'не вышло: ' + e.message; }
   $('dsExport').disabled = false;
@@ -244,7 +244,7 @@ $('dsClear').addEventListener('click', async () => {
 $('learn').addEventListener('toggle', () => { if ($('learn').open) dsRefresh(); });
 
 // ---------- shared dataset: enabled only after explicit consent ----------
-const PRIVACY_URL = 'https://github.com/DJpopusk/iinduization#приватность';
+const PRIVACY_URL = 'https://github.com/DJpopusk/AIndus#приватность';
 $('shPolicy').href = PRIVACY_URL;
 async function loadShare() {
   const st = await bg({ type: 'SHARE_STATUS' });

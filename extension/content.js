@@ -441,5 +441,5 @@
   document.addEventListener('visibilitychange', tick);
   window.addEventListener('pagehide', stopEffects);
 
-  console.log(TAG, `ИИндуизация подключена (${platform.name})`);
+  console.log(TAG, `AIndus подключён (${platform.name})`);
 })();

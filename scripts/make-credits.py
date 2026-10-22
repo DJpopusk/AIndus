@@ -82,12 +82,12 @@ def main():
         h.append(f'<tr><td><a href="{url}">{html.escape(name)}</a></td><td>{html.escape(author)}</td><td>{html.escape(lic)}</td></tr>')
     md.append(''); h.append('</table>')
     open(os.path.join(ROOT, 'CREDITS.md'), 'w').write('\n'.join(md) + '\n')
-    page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>ИИндуизация — авторы</title>
+    page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>AIndus: авторы</title>
 <style>body{{font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;max-width:980px;margin:24px auto;padding:0 16px;color:#222;background:#fff}}
 h1{{font-size:24px}}h2{{font-size:18px;margin-top:28px}}table{{border-collapse:collapse;width:100%}}td,th{{border-bottom:1px solid #e5e5e5;padding:6px 8px;text-align:left;vertical-align:top}}
 th{{font-weight:600;color:#555}}a{{color:#c25e00}}.note{{color:#666;font-size:13px}}
 @media (prefers-color-scheme: dark){{body{{background:#161311;color:#eee}}td,th{{border-color:#333}}th{{color:#aaa}}a{{color:#ffb366}}.note{{color:#999}}}}</style></head>
-<body><h1>Авторы и лицензии</h1><p class="note">Всё, что лежит в расширении ИИндуизация, и откуда оно взято.</p>{''.join(h)}</body></html>"""
+<body><h1>Авторы и лицензии</h1><p class="note">Всё, что лежит в расширении AIndus, и откуда оно взято.</p>{''.join(h)}</body></html>"""
     open(os.path.join(EXT, 'credits.html'), 'w').write(page)
     print('CREDITS.md и extension/credits.html:', len(people), 'моделей,', len(bds), 'фото,', sum(1 for s in songs if not s.get('private')), 'треков')
 

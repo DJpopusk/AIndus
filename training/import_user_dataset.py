@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Dataset from users' fine-tuning -> training data for the base model.
 
-    python3 training/import_user_dataset.py ~/Downloads/iinduization-dataset-*.zip
+    python3 training/import_user_dataset.py ~/Downloads/aindus-dataset-*.zip
     python3 training/train_scene.py          # the scene head is retrained with these frames
 
 Each zip from the popup (dataset download) is unpacked into training/user_data/<name>/. Frames are deduplicated by

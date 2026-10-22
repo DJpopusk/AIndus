@@ -1,8 +1,8 @@
 {
-  "name": "aindu",
+  "name": "aindus",
   "version": "0.1.0",
   "private": true,
-  "description": "ИИндуизация — расширение для Chrome: модель ИИндус смотрит рилсы, находит индусов, лайкает и запускает танцы",
+  "description": "AIndus («ИИндуизация»): расширение для Chrome и Firefox, модель ИИндус смотрит рилсы и устраивает праздник, когда видит индийский контент",
   "scripts": {
     "assets": "scripts/fetch-assets.sh",
     "test": "node test/e2e/run.js",
