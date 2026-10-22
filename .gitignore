@@ -44,10 +44,3 @@ training/user_data/
 *.zip
 .env
 
-# local Claude Code state (session logs) and working notes
-.claude/
-plan/
-temp/
-# local-only docs: privacy policy draft and store publishing notes
-PRIVACY.md
-PUBLISHING.md
