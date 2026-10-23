@@ -25,11 +25,11 @@ LIBS = [
     ('ONNX Runtime Web', 'Microsoft', 'MIT', 'https://github.com/microsoft/onnxruntime'),
     ('CLIP ViT-B/32 (веса Xenova/clip-vit-base-patch32)', 'OpenAI', 'MIT', 'https://huggingface.co/Xenova/clip-vit-base-patch32'),
     ('FairFace (обучение головы по лицам)', 'Kärkkäinen, Joo', 'CC BY 4.0', 'https://github.com/joojs/fairface'),
-    ('AIST++ (уличные танцы: хип-хоп, локинг, поппинг, крамп, вакинг, хаус, джаз, брейк; из аннотаций взяты повороты суставов, перенесены на свой скелет и зациклены)',
+    ('AIST++ (уличные танцы: хип-хоп, локинг, поппинг, крамп, хаус, джаз, брейк; из аннотаций взяты повороты суставов, перенесены на свой скелет и зациклены)',
      'Google LLC; танцоры AIST Dance Video Database', 'CC BY 4.0', 'https://google.github.io/aistplusplus_dataset/'),
-    ('100STYLE (смешные стили движения: курица, зомби, робот, пингвин и др.; записи обрезаны, развёрнуты к камере и зациклены)',
+    ('100STYLE (смешные стили движения: курица, зомби, динозавр, чайник и др.; записи обрезаны, развёрнуты к камере и зациклены)',
      'Ian Mason, Sebastian Starke, Taku Komura', 'CC BY 4.0', 'https://www.ianxmason.com/100style/'),
-    ('CMU Graphics Lab Motion Capture Database (индийский танец — субъект 94, пантомимы — субъект 55). The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.',
+    ('CMU Graphics Lab Motion Capture Database (индийский танец — субъект 94, русская плясовая — субъект 90, пантомимы — субъект 55). The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.',
      'Carnegie Mellon University', 'можно включать в продукты, нельзя перепродавать сами данные', 'http://mocap.cs.cmu.edu/'),
 ]
 

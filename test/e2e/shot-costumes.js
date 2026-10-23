@@ -20,7 +20,7 @@ const NAMES = process.argv.slice(2).length ? process.argv.slice(2) : ['turban', 
     const got = name.startsWith('god:')
       ? await p.evaluate(async (f) => { window.__iindu.spawnCostume('civil', 0); return ['богов: ' + await window.__iindu.spawnGods(1, f)]; }, name.slice(4))
       : name.startsWith('chore:')
-      ? await p.evaluate((a) => window.__iindu.spawnChore(a[1], a[2], 6), name.split(':'))
+      ? await p.evaluate((a) => window.__iindu.spawnChore(a[1], 8), name.split(':'))
       : name === 'cows'
       ? await p.evaluate(() => window.__iindu.spawnCows(3))
       : name.endsWith('.glb')

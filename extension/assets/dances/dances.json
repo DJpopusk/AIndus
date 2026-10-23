@@ -49,19 +49,6 @@
    "seconds": 9.5
   },
   {
-   "take": "gKR_sFM_cAll_d28_mKR2_ch03",
-   "title": "крамп (d28)",
-   "source": "aist",
-   "tags": [
-    "street"
-   ],
-   "reach": 1.16,
-   "kick": 95,
-   "from": 20.0,
-   "to": 27.1,
-   "seconds": 7.1
-  },
-  {
    "take": "gKR_sFM_cAll_d29_mKR2_ch10",
    "title": "крамп (d29)",
    "source": "aist",
@@ -114,19 +101,6 @@
    "seconds": 8.4
   },
   {
-   "take": "gLO_sFM_cAll_d14_mLO2_ch10",
-   "title": "локинг (d14)",
-   "source": "aist",
-   "tags": [
-    "street"
-   ],
-   "reach": 1.02,
-   "kick": 71,
-   "from": 9.7,
-   "to": 19.9,
-   "seconds": 10.2
-  },
-  {
    "take": "gMH_sFM_cAll_d22_mMH3_ch04",
    "title": "хип-хоп (d22)",
    "source": "aist",
@@ -166,45 +140,6 @@
    "seconds": 11.9
   },
   {
-   "take": "gPO_sFM_cAll_d11_mPO1_ch09",
-   "title": "поппинг (d11)",
-   "source": "aist",
-   "tags": [
-    "street"
-   ],
-   "reach": 1.11,
-   "kick": 46,
-   "from": 13.6,
-   "to": 24.4,
-   "seconds": 10.8
-  },
-  {
-   "take": "gWA_sFM_cAll_d25_mWA0_ch01",
-   "title": "вакинг (d25)",
-   "source": "aist",
-   "tags": [
-    "street"
-   ],
-   "reach": 1.32,
-   "kick": 39,
-   "from": 21.4,
-   "to": 28.2,
-   "seconds": 6.8
-  },
-  {
-   "take": "gWA_sFM_cAll_d26_mWA0_ch08",
-   "title": "вакинг (d26)",
-   "source": "aist",
-   "tags": [
-    "street"
-   ],
-   "reach": 1.34,
-   "kick": 53,
-   "from": 14.4,
-   "to": 24.5,
-   "seconds": 10.1
-  },
-  {
    "take": "gBR_sFM_cAll_d04_mBR0_ch01",
    "title": "брейк (d04)",
    "source": "aist",
@@ -218,17 +153,95 @@
    "seconds": 6.0
   },
   {
+   "take": "gHO_sBM_cAll_d19_mHO0_ch01",
+   "title": "хаус, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.91,
+   "kick": 45,
+   "from": 1.67,
+   "to": 8.2,
+   "seconds": 6.53
+  },
+  {
+   "take": "gLO_sBM_cAll_d13_mLO0_ch01",
+   "title": "локинг, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.98,
+   "kick": 50,
+   "from": 4.5,
+   "to": 10.7,
+   "seconds": 6.2
+  },
+  {
+   "take": "gPO_sBM_cAll_d10_mPO0_ch01",
+   "title": "поппинг, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.16,
+   "kick": 22,
+   "from": 3.9,
+   "to": 10.0,
+   "seconds": 6.1
+  },
+  {
+   "take": "gLH_sBM_cAll_d16_mLH0_ch01",
+   "title": "хип-хоп LA, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.92,
+   "kick": 57,
+   "from": 2.0,
+   "to": 10.9,
+   "seconds": 8.9
+  },
+  {
+   "take": "gKR_sBM_cAll_d28_mKR0_ch01",
+   "title": "крамп, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 0.5,
+   "kick": 105,
+   "from": 1.1,
+   "to": 9.6,
+   "seconds": 8.5
+  },
+  {
+   "take": "gJS_sBM_cAll_d01_mJS0_ch01",
+   "title": "стрит-джаз, база",
+   "source": "aist",
+   "tags": [
+    "street"
+   ],
+   "reach": 1.35,
+   "kick": 14,
+   "from": 2.0,
+   "to": 11.6,
+   "seconds": 9.6
+  },
+  {
    "take": "Chicken_FW",
    "title": "Курица",
    "source": "100style",
    "tags": [
     "rofl"
    ],
-   "reach": 0.69,
-   "kick": 54,
-   "from": 16.0,
-   "to": 24.5,
-   "seconds": 8.5
+   "reach": 0.52,
+   "kick": 52,
+   "from": 40.2,
+   "to": 48.4,
+   "seconds": 8.2
   },
   {
    "take": "Zombie_FW",
@@ -237,37 +250,11 @@
    "tags": [
     "rofl"
    ],
-   "reach": 1.24,
-   "kick": 23,
-   "from": 113.9,
-   "to": 121.1,
-   "seconds": 7.2
-  },
-  {
-   "take": "Robot_FW",
-   "title": "Робот",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.64,
-   "kick": 29,
-   "from": 63.0,
-   "to": 71.4,
-   "seconds": 8.4
-  },
-  {
-   "take": "Penguin_FW",
-   "title": "Пингвин",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.52,
-   "kick": 12,
-   "from": 141.9,
-   "to": 149.1,
-   "seconds": 7.2
+   "reach": 1.14,
+   "kick": 19,
+   "from": 15.4,
+   "to": 21.7,
+   "seconds": 6.3
   },
   {
    "take": "Dinosaur_FW",
@@ -276,11 +263,11 @@
    "tags": [
     "rofl"
    ],
-   "reach": 0.9,
-   "kick": 65,
-   "from": 47.1,
-   "to": 54.4,
-   "seconds": 7.3
+   "reach": 0.49,
+   "kick": 59,
+   "from": 105.2,
+   "to": 113.6,
+   "seconds": 8.4
   },
   {
    "take": "Flapping_FW",
@@ -289,115 +276,11 @@
    "tags": [
     "rofl"
    ],
-   "reach": 1.33,
+   "reach": 1.32,
    "kick": 24,
    "from": 54.0,
    "to": 62.5,
    "seconds": 8.5
-  },
-  {
-   "take": "WildArms_FW",
-   "title": "Дикие руки",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 1.15,
-   "kick": 22,
-   "from": 69.9,
-   "to": 76.2,
-   "seconds": 6.3
-  },
-  {
-   "take": "WiggleHips_FW",
-   "title": "Виляет бёдрами",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.68,
-   "kick": 24,
-   "from": 164.9,
-   "to": 170.9,
-   "seconds": 6.0
-  },
-  {
-   "take": "SwingShoulders_FW",
-   "title": "Плечами",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.91,
-   "kick": 26,
-   "from": 83.1,
-   "to": 89.2,
-   "seconds": 6.1
-  },
-  {
-   "take": "LawnMower_FW",
-   "title": "Газонокосилка",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.88,
-   "kick": 26,
-   "from": 79.2,
-   "to": 87.2,
-   "seconds": 8.0
-  },
-  {
-   "take": "Teapot_FW",
-   "title": "Чайник",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 1.28,
-   "kick": 25,
-   "from": 59.6,
-   "to": 67.4,
-   "seconds": 7.8
-  },
-  {
-   "take": "Superman_FW",
-   "title": "Супермен",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 1.16,
-   "kick": 27,
-   "from": 34.8,
-   "to": 44.6,
-   "seconds": 9.8
-  },
-  {
-   "take": "KarateChop_FW",
-   "title": "Каратист",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.88,
-   "kick": 26,
-   "from": 84.7,
-   "to": 92.7,
-   "seconds": 8.0
-  },
-  {
-   "take": "Swimming_FW",
-   "title": "Пловец",
-   "source": "100style",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 1.26,
-   "kick": 24,
-   "from": 75.5,
-   "to": 83.8,
-   "seconds": 8.3
   },
   {
    "take": "Aeroplane_FW",
@@ -406,11 +289,11 @@
    "tags": [
     "rofl"
    ],
-   "reach": 1.32,
-   "kick": 25,
-   "from": 82.4,
-   "to": 90.6,
-   "seconds": 8.2
+   "reach": 1.33,
+   "kick": 24,
+   "from": 46.4,
+   "to": 55.2,
+   "seconds": 8.8
   },
   {
    "take": "WhirlArms_FW",
@@ -419,10 +302,10 @@
    "tags": [
     "rofl"
    ],
-   "reach": 1.28,
-   "kick": 20,
-   "from": 68.3,
-   "to": 74.9,
+   "reach": 1.29,
+   "kick": 21,
+   "from": 68.2,
+   "to": 74.8,
    "seconds": 6.6
   },
   {
@@ -432,24 +315,37 @@
    "tags": [
     "rofl"
    ],
-   "reach": 0.69,
-   "kick": 77,
-   "from": 112.6,
-   "to": 118.6,
-   "seconds": 6.0
+   "reach": 0.59,
+   "kick": 79,
+   "from": 74.1,
+   "to": 83.2,
+   "seconds": 9.1
   },
   {
-   "take": "Monk_FW",
-   "title": "Монах",
+   "take": "Teapot_FW",
+   "title": "Чайник",
    "source": "100style",
    "tags": [
     "rofl"
    ],
-   "reach": 0.47,
-   "kick": 21,
-   "from": 92.9,
-   "to": 99.4,
-   "seconds": 6.5
+   "reach": 1.31,
+   "kick": 25,
+   "from": 59.5,
+   "to": 68.6,
+   "seconds": 9.1
+  },
+  {
+   "take": "Swimming_FW",
+   "title": "Пловец",
+   "source": "100style",
+   "tags": [
+    "rofl"
+   ],
+   "reach": 1.24,
+   "kick": 24,
+   "from": 75.5,
+   "to": 83.8,
+   "seconds": 8.3
   },
   {
    "take": "55_12",
@@ -478,19 +374,6 @@
    "seconds": 6.0
   },
   {
-   "take": "55_27",
-   "title": "Танцующий муравей",
-   "source": "cmu",
-   "tags": [
-    "rofl"
-   ],
-   "reach": 0.89,
-   "kick": 30,
-   "from": 20.2,
-   "to": 29.6,
-   "seconds": 9.4
-  },
-  {
    "take": "55_25",
    "title": "Танцующий зверь",
    "source": "cmu",
@@ -502,6 +385,32 @@
    "from": 6.2,
    "to": 15.1,
    "seconds": 8.9
+  },
+  {
+   "take": "94_02",
+   "title": "Индийский танец 2",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.35,
+   "kick": 47,
+   "from": 2.2,
+   "to": 9.1,
+   "seconds": 6.9
+  },
+  {
+   "take": "94_03",
+   "title": "Индийский танец 3",
+   "source": "cmu",
+   "tags": [
+    "indian"
+   ],
+   "reach": 1.35,
+   "kick": 71,
+   "from": 6.5,
+   "to": 15.2,
+   "seconds": 8.7
   },
   {
    "take": "94_06",
@@ -530,30 +439,108 @@
    "seconds": 10.9
   },
   {
-   "take": "94_11",
-   "title": "Индийский танец 11",
+   "take": "94_10",
+   "title": "Индийский танец 10",
    "source": "cmu",
    "tags": [
     "indian"
    ],
-   "reach": 1.31,
-   "kick": 55,
-   "from": 17.2,
-   "to": 30.8,
-   "seconds": 13.6
+   "reach": 1.34,
+   "kick": 58,
+   "from": 15.2,
+   "to": 22.2,
+   "seconds": 7.0
   },
   {
-   "take": "94_16",
-   "title": "Индийский танец 16",
+   "take": "94_12",
+   "title": "Индийский танец 12",
    "source": "cmu",
    "tags": [
     "indian"
    ],
-   "reach": 1.17,
-   "kick": 73,
-   "from": 1.0,
-   "to": 14.9,
-   "seconds": 13.9
+   "reach": 1.34,
+   "kick": 72,
+   "from": 27.8,
+   "to": 35.4,
+   "seconds": 7.6
+  },
+  {
+   "take": "90_30",
+   "title": "Русская плясовая",
+   "source": "cmu",
+   "tags": [
+    "folk"
+   ],
+   "reach": 1.35,
+   "kick": 115,
+   "from": 3.4,
+   "to": 10.6,
+   "seconds": 7.2
+  },
+  {
+   "take": "90_31",
+   "title": "Русская плясовая 2",
+   "source": "cmu",
+   "tags": [
+    "folk"
+   ],
+   "reach": 1.37,
+   "kick": 120,
+   "from": 1.7,
+   "to": 8.1,
+   "seconds": 6.4
+  },
+  {
+   "take": "crowd_clap",
+   "title": "Хлопки",
+   "source": "synth",
+   "tags": [
+    "crowd"
+   ],
+   "reach": 0.54,
+   "kick": 13,
+   "from": 0.0,
+   "to": 3.77,
+   "seconds": 3.77
+  },
+  {
+   "take": "crowd_wave",
+   "title": "Волна руками",
+   "source": "synth",
+   "tags": [
+    "crowd"
+   ],
+   "reach": 1.04,
+   "kick": 4,
+   "from": 0.0,
+   "to": 3.77,
+   "seconds": 3.77
+  },
+  {
+   "take": "crowd_jump",
+   "title": "Прыжки с кулаком",
+   "source": "synth",
+   "tags": [
+    "crowd"
+   ],
+   "reach": 1.21,
+   "kick": 20,
+   "from": 0.0,
+   "to": 3.77,
+   "seconds": 3.77
+  },
+  {
+   "take": "crowd_sway",
+   "title": "Руки вверх, качание",
+   "source": "synth",
+   "tags": [
+    "crowd"
+   ],
+   "reach": 1.09,
+   "kick": 11,
+   "from": 0.0,
+   "to": 3.77,
+   "seconds": 3.77
   }
  ]
 }

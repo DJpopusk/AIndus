@@ -55,22 +55,26 @@ SOURCES = {
 GENRE = {'HO': 'хаус', 'JB': 'балетный джаз', 'JS': 'стрит-джаз', 'KR': 'крамп', 'LH': 'хип-хоп LA', 'LO': 'локинг',
          'MH': 'хип-хоп', 'PO': 'поппинг', 'WA': 'вакинг', 'BR': 'брейк'}
 
-# (source, record, title, tags, longest loop in seconds). Tags: street for modern street dance,
-# rofl for funny styles, indian for Indian dance. The overlay mixes them per celebration theme.
+# (source, record, title, tags, longest loop in seconds). The overlay builds a scene from the groups (see compose in overlay.js).
+# Picked by look and by plan/tools-style pose checks: no arms twisted behind the back, no long stretches with the
+# back to the camera, every one readable from the front. Groups: street (front and middle rows), rofl (funny),
+# indian, folk (Russian squat dance) and crowd (synthetic moves for the back rows).
 CLIPS = [('aist', n, f'{GENRE[n[1:3]]} ({n.split("_")[3]})', ['street'], 12) for n in [
-    'gHO_sFM_cAll_d19_mHO5_ch06', 'gJS_sFM_cAll_d01_mJS3_ch04', 'gKR_sFM_cAll_d28_mKR2_ch03', 'gKR_sFM_cAll_d29_mKR2_ch10',
-    'gLH_sFM_cAll_d16_mLH4_ch05', 'gLH_sFM_cAll_d17_mLH4_ch12', 'gLO_sFM_cAll_d13_mLO2_ch03', 'gLO_sFM_cAll_d14_mLO2_ch10',
-    'gMH_sFM_cAll_d22_mMH3_ch04', 'gMH_sFM_cAll_d23_mMH3_ch11', 'gPO_sFM_cAll_d10_mPO1_ch02', 'gPO_sFM_cAll_d11_mPO1_ch09',
-    'gWA_sFM_cAll_d25_mWA0_ch01', 'gWA_sFM_cAll_d26_mWA0_ch08', 'gBR_sFM_cAll_d04_mBR0_ch01']
+    'gHO_sFM_cAll_d19_mHO5_ch06', 'gJS_sFM_cAll_d01_mJS3_ch04', 'gKR_sFM_cAll_d29_mKR2_ch10', 'gLH_sFM_cAll_d16_mLH4_ch05',
+    'gLH_sFM_cAll_d17_mLH4_ch12', 'gLO_sFM_cAll_d13_mLO2_ch03', 'gMH_sFM_cAll_d22_mMH3_ch04', 'gMH_sFM_cAll_d23_mMH3_ch11',
+    'gPO_sFM_cAll_d10_mPO1_ch02', 'gBR_sFM_cAll_d04_mBR0_ch01']
+] + [('aist', n, f'{GENRE[n[1:3]]}, база', ['street'], 10) for n in [
+    'gHO_sBM_cAll_d19_mHO0_ch01', 'gLO_sBM_cAll_d13_mLO0_ch01', 'gPO_sBM_cAll_d10_mPO0_ch01', 'gLH_sBM_cAll_d16_mLH0_ch01',
+    'gKR_sBM_cAll_d28_mKR0_ch01', 'gJS_sBM_cAll_d01_mJS0_ch01']
 ] + [('100style', n + '_FW', title, ['rofl'], 10) for n, title in [
-    ('Chicken', 'Курица'), ('Zombie', 'Зомби'), ('Robot', 'Робот'), ('Penguin', 'Пингвин'), ('Dinosaur', 'Динозавр'),
-    ('Flapping', 'Машет крыльями'), ('WildArms', 'Дикие руки'), ('WiggleHips', 'Виляет бёдрами'), ('SwingShoulders', 'Плечами'),
-    ('LawnMower', 'Газонокосилка'), ('Teapot', 'Чайник'), ('Superman', 'Супермен'), ('KarateChop', 'Каратист'), ('Swimming', 'Пловец'),
-    ('Aeroplane', 'Самолётик'), ('WhirlArms', 'Мельница'), ('HighKnees', 'Высокие колени'), ('Monk', 'Монах')]
-] + [
-    ('cmu', '55_12', 'Танцующий медведь', ['rofl'], 10), ('cmu', '55_20', 'Бегемот-балерина', ['rofl'], 10),
-    ('cmu', '55_27', 'Танцующий муравей', ['rofl'], 10), ('cmu', '55_25', 'Танцующий зверь', ['rofl'], 10),
-] + [('cmu', f'94_{i:02d}', f'Индийский танец {i}', ['indian'], 14) for i in (6, 9, 11, 16)]
+    ('Chicken', 'Курица'), ('Zombie', 'Зомби'), ('Dinosaur', 'Динозавр'), ('Flapping', 'Машет крыльями'), ('Aeroplane', 'Самолётик'),
+    ('WhirlArms', 'Мельница'), ('HighKnees', 'Высокие колени'), ('Teapot', 'Чайник'), ('Swimming', 'Пловец')]
+] + [('cmu', '55_12', 'Танцующий медведь', ['rofl'], 10), ('cmu', '55_20', 'Бегемот-балерина', ['rofl'], 10),
+     ('cmu', '55_25', 'Танцующий зверь', ['rofl'], 10)
+] + [('cmu', f'94_{i:02d}', f'Индийский танец {i}', ['indian'], 14) for i in (2, 3, 6, 9, 10, 12)
+] + [('cmu', '90_30', 'Русская плясовая', ['folk'], 10), ('cmu', '90_31', 'Русская плясовая 2', ['folk'], 10)
+] + [('synth', 'crowd_clap', 'Хлопки', ['crowd'], 0), ('synth', 'crowd_wave', 'Волна руками', ['crowd'], 0),
+     ('synth', 'crowd_jump', 'Прыжки с кулаком', ['crowd'], 0), ('synth', 'crowd_sway', 'Руки вверх, качание', ['crowd'], 0)]
 
 # Mixamo joint -> how to get it from CMU bone ends (end(x) is the end of bone x)
 JOINTS = {
@@ -279,8 +283,10 @@ def parse_bvh(text):
 
 
 def axis_rot(axis, deg):
+    """right-handed rotation about X, Y or Z. The two other axes go in cyclic order (Y,Z), (Z,X), (X,Y):
+    taking them in plain index order flips the sign for Y, which once turned forward reaches into arms behind the back."""
     t = np.radians(deg); c, s_ = np.cos(t), np.sin(t)
-    R = np.zeros(deg.shape + (3, 3)); a = 'XYZ'.index(axis); b, cidx = [x for x in range(3) if x != a]
+    R = np.zeros(deg.shape + (3, 3)); a = 'XYZ'.index(axis); b, cidx = (a + 1) % 3, (a + 2) % 3
     R[..., a, a] = 1; R[..., b, b] = c; R[..., cidx, cidx] = c; R[..., b, cidx] = -s_; R[..., cidx, b] = s_
     return R
 
@@ -315,7 +321,161 @@ def load_style(name):
     return to_y_up(out, NAMES.index('Neck'), NAMES.index('Hips'))
 
 
+# ---------- synthetic crowd moves ----------
+# Authored directly as joint positions on a neutral standing pose (100STYLE Neutral_ID), in 8 beats of the
+# overlay's tempo (BEAT_HZ 2.13), so they loop exactly. Back rows use them: they read as a crowd, not as a routine.
+BEAT = 1 / 2.13
+SYNTH_FRAMES = round(8 * BEAT * FPS)
+
+
+def neutral_pose():
+    path = os.path.join(CACHE, 'neutral_pose.npy')
+    if not os.path.exists(path):
+        X = face_camera(normalize(load_style('Neutral_ID')))
+        np.save(path, np.median(X, axis=0))
+    return np.load(path)
+
+
+def unit(v):
+    return v / max(np.linalg.norm(v), 1e-9)
+
+
+def two_bone(a, c, l1, l2, bend):
+    """middle joint for a chain a -> b -> c with lengths l1, l2; it bulges toward the bend vector"""
+    d = min(np.linalg.norm(c - a), l1 + l2 - 1e-4)
+    u = unit(c - a)
+    x = (l1 * l1 - l2 * l2 + d * d) / (2 * d)
+    h = np.sqrt(max(l1 * l1 - x * x, 0))
+    n = unit(bend - (bend @ u) * u)
+    return a + x * u + h * n
+
+
+class Rig:
+    def __init__(self):
+        self.base = neutral_pose()
+        J = NAMES.index
+        L = lambda a, b: np.linalg.norm(self.base[J(a)] - self.base[J(b)])
+        self.upper, self.fore, self.palm = L('LeftArm', 'LeftForeArm'), L('LeftForeArm', 'LeftHand'), L('LeftHand', 'LeftHandMiddle1')
+        self.thigh, self.shin = L('LeftUpLeg', 'LeftLeg'), L('LeftLeg', 'LeftFoot')
+        self.legs = {'Left', 'Right'}
+        self.lower = {n for n in NAMES if any(k in n for k in ('UpLeg', 'Leg', 'Foot', 'Toe'))}
+
+    def frame(self):
+        return self.base.copy()
+
+    def arm(self, P, side, upper_dir, fore_dir, hand_dir=None):
+        J = NAMES.index
+        e = P[J(side + 'Arm')] + self.upper * unit(upper_dir)
+        w = e + self.fore * unit(fore_dir)
+        h = unit(fore_dir if hand_dir is None else hand_dir)
+        P[J(side + 'ForeArm')], P[J(side + 'Hand')] = e, w
+        P[J(side + 'HandMiddle1')] = w + self.palm * h
+        P[J(side + 'HandThumb1')] = w + 0.6 * self.palm * h + np.array([0, 0.02, 0])
+
+    def crouch(self, P, dy):
+        """lower everything above the legs by dy with the feet planted; knees bend forward (two-bone IK)"""
+        J = NAMES.index
+        for n in NAMES:
+            if n not in self.lower: P[J(n)][1] -= dy
+        for s_ in ('Left', 'Right'):
+            P[J(s_ + 'UpLeg')][1] -= dy
+            P[J(s_ + 'Leg')] = two_bone(P[J(s_ + 'UpLeg')], P[J(s_ + 'Foot')], self.thigh, self.shin, np.array([0, 0, 1.0]))
+
+    def lift(self, P, dy):
+        P[:, 1] += dy
+
+    def lean(self, P, angle):
+        """tilt everything above the hips sideways around the pelvis (radians, + leans to the dancer's left)"""
+        J = NAMES.index
+        hip = P[J('Hips')].copy(); c, s_ = np.cos(angle), np.sin(angle)
+        for n in NAMES:
+            if n in self.lower or n == 'Hips': continue
+            v = P[J(n)] - hip
+            P[J(n)] = hip + np.array([c * v[0] + s_ * v[1], -s_ * v[0] + c * v[1], v[2]])
+
+
+def synth_clap(rig):
+    """clapping with the upper arms left as they hang: only the elbows bend, palms meet in front of the belly"""
+    J = NAMES.index; out = []
+    for f in range(SYNTH_FRAMES):
+        ph = (f / FPS / BEAT) % 1
+        P = rig.frame()
+        rig.crouch(P, 0.02 * (0.5 + 0.5 * np.cos(2 * np.pi * ph)))           # small knee bounce, lowest on the clap
+        gap = 0.035 + 0.20 * np.sin(np.pi * ph) ** 0.8                        # wrists: together on the beat, apart between
+        for side, sx in (('Left', 1), ('Right', -1)):
+            up = rig.base[J(side + 'ForeArm')] - rig.base[J(side + 'Arm')]   # upper arm exactly as at rest
+            e = P[J(side + 'Arm')] + rig.upper * unit(up)
+            target = np.array([sx * gap / 2, e[1] + 0.03, 0])
+            dx, dy = target[0] - e[0], target[1] - e[1]
+            target[2] = e[2] + np.sqrt(max(rig.fore ** 2 - dx * dx - dy * dy, 0.02 ** 2))
+            rig.arm(P, side, up, target - e, hand_dir=np.array([-sx * 0.04, 0.75, 1.0]))   # fingers forward and up: palms meet flat
+        out.append(P)
+    return np.stack(out)
+
+
+def synth_wave(rig):
+    """stadium wave: arms swing forward and up overhead, hold, come down, rest. The overlay delays each dancer
+    by their x position, so the wave runs along the row."""
+    J = NAMES.index; out = []
+    for f in range(SYNTH_FRAMES):
+        b = f / FPS / BEAT                                                   # beats from the start, 0..8
+        if b < 1.2: phi = np.pi * 0.95 * (0.5 - 0.5 * np.cos(np.pi * b / 1.2))
+        elif b < 1.8: phi = np.pi * 0.95
+        elif b < 3.0: phi = np.pi * 0.95 * (0.5 + 0.5 * np.cos(np.pi * (b - 1.8) / 1.2))
+        else: phi = 0.0
+        P = rig.frame()
+        rig.lift(P, 0.03 * np.sin(phi / 0.95))                               # rises onto the toes with the arms
+        for side, sx in (('Left', 1), ('Right', -1)):
+            d = unit(np.cos(phi) * np.array([0, -1.0, 0]) + np.sin(phi) * np.array([0, 0, 1.0]) + np.array([sx * 0.18, 0, 0]))
+            rig.arm(P, side, d, d + np.array([0, 0.05, 0.05]))
+        out.append(P)
+    return np.stack(out)
+
+
+def synth_jump(rig):
+    """jumping on every beat with a fist punched up; the arms take turns every two beats"""
+    J = NAMES.index; out = []
+    for f in range(SYNTH_FRAMES):
+        b = f / FPS / BEAT; ph = b % 1
+        P = rig.frame()
+        air = 0.09 * max(0.0, np.sin(np.pi * (ph - 0.2) / 0.6)) if 0.2 < ph < 0.8 else 0.0
+        dip = 0.06 * (1 - min(ph, 1 - ph) / 0.2) if min(ph, 1 - ph) < 0.2 else 0.0
+        rig.crouch(P, dip)
+        rig.lift(P, air)
+        punch = 'Left' if int(b // 2) % 2 == 0 else 'Right'
+        up = 0.5 - 0.5 * np.cos(2 * np.pi * ph)                              # 0 on landing, 1 at the top of the jump
+        for side, sx in (('Left', 1), ('Right', -1)):
+            if side == punch:
+                d = unit(np.array([sx * 0.25, -0.2 + 1.3 * up, 0.35]))
+                rig.arm(P, side, d, d + np.array([0, 0.3, 0]))
+            else:
+                rig.arm(P, side, np.array([sx * 0.25, -0.9, 0.15]), np.array([-sx * 0.2, 0.6, 1.0]))   # fist at the chest
+        out.append(P)
+    return np.stack(out)
+
+
+def synth_sway(rig):
+    """arms up in a V, the body sways side to side over four beats, hands wave"""
+    out = []
+    for f in range(SYNTH_FRAMES):
+        b = f / FPS / BEAT
+        P = rig.frame()
+        rig.crouch(P, 0.015 * (0.5 - 0.5 * np.cos(2 * np.pi * b)))
+        for side, sx in (('Left', 1), ('Right', -1)):
+            d = unit(np.array([sx * 0.42, 1.0, 0.12]))
+            wave = 0.35 * np.sin(np.pi * b / 2 + (0 if sx > 0 else np.pi))
+            rig.arm(P, side, d, unit(d + np.array([sx * wave, 0, 0])))
+        rig.lean(P, 0.13 * np.sin(np.pi * b / 2))
+        out.append(P)
+    return np.stack(out)
+
+
+SYNTH = {'crowd_clap': synth_clap, 'crowd_wave': synth_wave, 'crowd_jump': synth_jump, 'crowd_sway': synth_sway}
+
+
 def load(src, take):
+    if src == 'synth':
+        return SYNTH[take](Rig())
     return {'cmu': load_clip, 'aist': load_aist, '100style': load_style}[src](take)
 
 
@@ -492,11 +652,15 @@ def main():
     for src, take, title, tags, mx in CLIPS:
         if only and take not in only: continue
         try:
-            X = normalize(load(src, take), unwind=src == '100style')
+            X = load(src, take)
+            if src != 'synth': X = normalize(X, unwind=src == '100style')
         except Exception as e:
             print(f'  {take}: не вышло — {e}', flush=True); continue
-        Y, a, b = best_loop(X, mx)
-        Y = face_camera(Y)
+        if src == 'synth':                                    # authored as an exact loop, facing the camera
+            Y, a, b = X, 0.0, len(X) / FPS
+        else:
+            Y, a, b = best_loop(X, mx)
+            Y = face_camera(Y)
         r, kk = reach(Y), kick(Y)
         clips.append((take, Y.astype(np.float32)))
         meta.append({'take': take, 'title': title, 'source': src, 'tags': tags, 'reach': round(r, 2), 'kick': round(kk), 'from': round(a, 2), 'to': round(b, 2),

@@ -21,7 +21,7 @@ const W = +(process.env.W || 1440), H = +(process.env.H || 800), RW = Math.round
       settings: { sound: false, dancers: a.n, fx: 0.4, cows: true, gods: true, animals: true, backdrop: a.bg, graphics: a.gfx } }, '*'), { id: r + 1, W, H, RW, gfx: process.env.GFX || 'high', bg: process.env.BG !== '0', n: +(process.env.N || 6) });
     await p.waitForFunction(() => window.__iindu && window.__iindu.dancers > 0 && window.__iindu.cows > 0, null, { timeout: 120000 });
     await p.waitForTimeout(+(process.env.WAIT || 4000));
-    const info = await p.evaluate(() => ({ chore: window.__iindu.chore, stage: window.__iindu.stage }));
+    const info = await p.evaluate(() => ({ scene: window.__iindu.scene, stage: window.__iindu.stage }));
     for (let i = 0; i < FRAMES; i++) {
       await p.waitForTimeout(700);
       await p.screenshot({ path: path.join(OUT, `scene_${W}_${r}_${i}.png`) });

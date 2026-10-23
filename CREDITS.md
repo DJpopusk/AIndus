@@ -160,7 +160,7 @@
 | [ONNX Runtime Web](https://github.com/microsoft/onnxruntime) | Microsoft | MIT |
 | [CLIP ViT-B/32 (веса Xenova/clip-vit-base-patch32)](https://huggingface.co/Xenova/clip-vit-base-patch32) | OpenAI | MIT |
 | [FairFace (обучение головы по лицам)](https://github.com/joojs/fairface) | Kärkkäinen, Joo | CC BY 4.0 |
-| [AIST++ (уличные танцы: хип-хоп, локинг, поппинг, крамп, вакинг, хаус, джаз, брейк; из аннотаций взяты повороты суставов, перенесены на свой скелет и зациклены)](https://google.github.io/aistplusplus_dataset/) | Google LLC; танцоры AIST Dance Video Database | CC BY 4.0 |
-| [100STYLE (смешные стили движения: курица, зомби, робот, пингвин и др.; записи обрезаны, развёрнуты к камере и зациклены)](https://www.ianxmason.com/100style/) | Ian Mason, Sebastian Starke, Taku Komura | CC BY 4.0 |
-| [CMU Graphics Lab Motion Capture Database (индийский танец — субъект 94, пантомимы — субъект 55). The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.](http://mocap.cs.cmu.edu/) | Carnegie Mellon University | можно включать в продукты, нельзя перепродавать сами данные |
+| [AIST++ (уличные танцы: хип-хоп, локинг, поппинг, крамп, хаус, джаз, брейк; из аннотаций взяты повороты суставов, перенесены на свой скелет и зациклены)](https://google.github.io/aistplusplus_dataset/) | Google LLC; танцоры AIST Dance Video Database | CC BY 4.0 |
+| [100STYLE (смешные стили движения: курица, зомби, динозавр, чайник и др.; записи обрезаны, развёрнуты к камере и зациклены)](https://www.ianxmason.com/100style/) | Ian Mason, Sebastian Starke, Taku Komura | CC BY 4.0 |
+| [CMU Graphics Lab Motion Capture Database (индийский танец — субъект 94, русская плясовая — субъект 90, пантомимы — субъект 55). The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.](http://mocap.cs.cmu.edu/) | Carnegie Mellon University | можно включать в продукты, нельзя перепродавать сами данные |
 

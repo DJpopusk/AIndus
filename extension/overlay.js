@@ -20,29 +20,59 @@ let settings = { sound: true, volume: 0.7, dancers: 18, fx: 1, cows: true, gods:
 // with Mixamo bone names and no rotations; the animation is joint positions. bakeRetarget moves a dance onto a model
 // by matching bone directions.
 const DANCE_FILE = 'assets/dances/dances.glb';
-// dance metadata (dances.json): category street / rofl / indian, title, arm reach
+// dance metadata (dances.json): group (street / rofl / indian / folk / crowd), title, arm reach, leg lift
 const danceMeta = {};
 const danceMetaLoaded = fetch(chrome.runtime.getURL('assets/dances/dances.json')).then((r) => r.json())
   .then((d) => { for (const c of d.clips) danceMeta[c.take] = c; }).catch(() => {});
-// category shares per celebration theme. Modern and funny dances are the base and Indian ones add flavour
-// (more of them on the bollywood, wedding and diwali themes)
-const DANCE_MIX = {
-  default: { street: 45, rofl: 35, indian: 20 },
-  bollywood: { street: 35, rofl: 30, indian: 35 }, wedding: { street: 35, rofl: 30, indian: 35 }, diwali: { street: 35, rofl: 30, indian: 35 },
-  spidey: { street: 60, rofl: 40, indian: 0 },
-};
 const danceTag = (clip) => (danceMeta[clip.name]?.tags || ['street'])[0];
-// pick a dance: first a category by the theme's shares, then a random dance in it. only is a list of allowed
-// names (models with fragile skinning have one in people.json: dances)
-function pickDance(clips, only = null) {
-  const pool = clips.map((c, i) => i).filter((i) => !only || only.includes(clips[i].name));
-  if (!pool.length) return Math.floor(Math.random() * clips.length);
-  const mix = DANCE_MIX[theme?.name] || DANCE_MIX.default;
-  const tags = [...new Set(pool.map((i) => danceTag(clips[i])))].filter((t) => (mix[t] ?? 10) > 0);
-  if (!tags.length) return rnd(pool);
-  let r = Math.random() * tags.reduce((a, t) => a + (mix[t] ?? 10), 0), tag = tags[tags.length - 1];
-  for (const t of tags) { r -= (mix[t] ?? 10); if (r <= 0) { tag = t; break; } }
-  return rnd(pool.filter((i) => danceTag(clips[i]) === tag));
+
+// ---------- scene composition ----------
+// A celebration is staged rather than a crowd repeating one dance. The front row is the lead group and dances one
+// routine in unison, row 1 does a second move, and the rows behind do crowd moves (clap, stadium wave, jump, sway).
+// A scene names the move for each zone: a dance group from dances.json or a specific record. In a battle the front
+// row splits into two crews with different routines, left and right of the reel. Back rows take the listed moves in
+// turn, row by row.
+const SCENES = {
+  concert: { front: 'street', middle: 'street', back: ['crowd_sway', 'crowd_wave'] },
+  disco:   { front: 'rofl', middle: 'street', back: ['crowd_jump', 'crowd_clap'] },
+  wedding: { front: 'indian', middle: 'crowd_clap', back: ['crowd_sway', 'crowd_clap'] },
+  folk:    { front: 'folk', middle: 'crowd_clap', back: ['crowd_clap', 'crowd_wave'] },
+  stadium: { front: 'street', middle: 'crowd_jump', back: ['crowd_wave'] },
+  battle:  { front: 'street', battle: true, middle: 'crowd_clap', back: ['crowd_jump', 'crowd_sway'] },
+};
+// scene odds per celebration theme: Indian dances lead at weddings and Diwali, the stadium wave at cricket
+const SCENE_MIX = {
+  default: { concert: 3, disco: 3, wedding: 2, folk: 2, stadium: 2, battle: 3 },
+  bollywood: { wedding: 5, concert: 2, battle: 2, folk: 1 },
+  wedding: { wedding: 6, folk: 2, concert: 2 },
+  diwali: { wedding: 5, concert: 2, folk: 2 },
+  bhangra: { disco: 3, folk: 3, battle: 2, concert: 2 },
+  holi: { disco: 3, concert: 3, folk: 2, battle: 2 },
+  cricket: { stadium: 6, concert: 2, disco: 2 },
+  street: { battle: 4, concert: 3, disco: 3 },
+  spidey: { concert: 3, battle: 1 },
+};
+const WAVE_SPAN = 2.4;                 // s for the stadium wave to cross the stage from left to right (arms are up ~0.9 s)
+
+// a record name or a group -> clip index; within a group a random record, never the one in `avoid`
+function clipFor(spec, avoid = -1) {
+  const clips = assets.m.clips;
+  const named = clips.findIndex((c) => c.name === spec);
+  if (named >= 0) return named;
+  let pool = clips.map((c, i) => i).filter((i) => danceTag(clips[i]) === spec);
+  if (pool.length > 1) pool = pool.filter((i) => i !== avoid);
+  return pool.length ? rnd(pool) : Math.floor(Math.random() * clips.length);
+}
+function pickScene(name = null) {
+  const mix = SCENE_MIX[theme?.name] || SCENE_MIX.default;
+  if (!name || !SCENES[name]) {
+    let r = Math.random() * Object.values(mix).reduce((a, w) => a + w, 0);
+    name = Object.keys(mix).find((k) => (r -= mix[k]) <= 0) || Object.keys(mix)[0];
+  }
+  const sc = SCENES[name], front = clipFor(sc.front);
+  const middle = clipFor(sc.middle, front);
+  return { scene: name, front, frontB: sc.battle ? clipFor(sc.front, front) : front, middle, back: sc.back.map((b) => clipFor(b)),
+    speed: 0.95 + Math.random() * 0.15 };
 }
 const loader = new GLTFLoader();
 loader.setMeshoptDecoder(MeshoptDecoder);        // models are meshopt-compressed (scripts/compress-models.py)
@@ -1281,8 +1311,6 @@ let reelRect = null; // reel rectangle in px; dancers stand beside it, not on it
 // dancing, the beat and camera sway, projected to pixels. A spot is valid only if the rectangle stays clear of the
 // reel and follows the overlap rules below. Order: cows and big animals, then the front row (lead, stars, both Modis),
 // the back rows, the macaque, the gods. Whatever does not fit sits this reel out: fewer figures, each fully visible.
-const SYNCS = [['унисон', 42], ['канон', 26], ['разнобой', 32]];   // in unison it reads as a routine, out of sync as a crowd
-const STYLES = ['толпа', 'лесенка', 'шеренга'];                   // how people are spread in depth
 const COW_H = 1.4;            // cow height, m, as a real cow next to a person
 const COW_TURN = 0.3;         // on top of the camera view angle the body is turned inward, toward the reel, by ~17 degrees
 const COW_SWAY = 0.28;        // and sways +-16 degrees without a full turn, so the space it needs is known
@@ -1401,6 +1429,7 @@ function arrangeStage({ keep = false } = {}) {
     const order = [...dancers].sort((a, b) => (b.lead - a.lead) || ((peopleRec(b)?.featured ? 1 : 0) - (peopleRec(a)?.featured ? 1 : 0)));
     const personAt = (d) => (x, z) => { const sc = d.base * 1.07; return { R: boxRect(x, 0, z, 0.5 * sc, DANCER_H * sc, 0.15) }; };
     const put = (d, best, row) => {
+      d.row = row;
       d.obj.position.set(best.x, 0, best.z);
       d.obj.rotation.y = d.lead ? 0 : -Math.sign(best.x) * 0.12 + (d.ry || 0);       // slightly toward the centre of the frame
       if (d.shadow) d.shadow.position.set(best.x, 0.005, best.z);
@@ -1447,6 +1476,7 @@ function arrangeStage({ keep = false } = {}) {
     }
     for (const bst of beasts) if (bst.rec.place === 'corner') placeBeast(bst);
     if (traffic.length) placeTraffic();
+    compose();
   }
   // --- gods: in the sky where it is free (and not under the title) ---
   const tb = $('title').getBoundingClientRect();
@@ -1478,13 +1508,6 @@ function arrangeStage({ keep = false } = {}) {
   if (!keep) console.debug(`[ИИндус] расстановка: людей ${dancers.filter((d) => d.placed).length}/${dancers.length}, коров ${cows.filter((c) => c.placed).length}/${cows.length}, животных ${beasts.filter((b) => b.placed).length}/${beasts.length}`);
 }
 const peopleRec = (d) => d.file && people.find((p) => p.file === d.file);
-
-function pickChoreography() {
-  const formation = rnd(STYLES);
-  let r = Math.random() * SYNCS.reduce((a, [, w]) => a + w, 0);
-  const sync = (SYNCS.find(([, w]) => (r -= w) <= 0) || SYNCS[0])[0];
-  return { formation, sync };
-}
 
 // Prop adapter. Turbans, glasses and garlands used to be drawn in the RPM dummy's bone space and copied to other
 // skeletons as is. Downloaded models have a different head and torso size and sit differently relative to their bones
@@ -1799,14 +1822,12 @@ function recolorPerson(obj) {
 let forcedCostume = null, forcedPerson = null;   // for debug screenshots
 let camOverride = null;                           // debugging: close-up camera
 let frozenT = null;                               // debugging: frozen time, for pixel comparisons
-let chore = { formation: 'шеренга', sync: 'разнобой' };
-function spawnDancers(n, forcedChore, { lead = null } = {}) {
+let chore = null;                                 // the current scene: { scene, front, frontB, middle, back[], speed }
+function spawnDancers(n, forcedScene = null, { lead = null } = {}) {
   clearDancers();
-  chore = forcedChore || pickChoreography();
+  chore = pickScene(forcedScene);
   n = Math.max(MIN_PEOPLE, n);                              // crowd: at least MIN_PEOPLE
   if (lead) n += 1;
-  const groupClip = pickDance(assets.m.clips);             // in unison and canon everyone dances the same dance
-  const groupSpeed = 0.95 + Math.random() * 0.25;
   // deck for the stage: each loaded person comes out once; at most three stars (two with a lead), or half the stage is Modi
   const pool = people.filter((p) => (p.kind === 'm' || p.kind === 'f') && peopleCache.has(p.file) && p.file !== SPIDEY_FILE).sort(() => Math.random() - 0.5);
   const crowd = pool.filter((p) => !lead || p.file !== lead.file);
@@ -1825,24 +1846,8 @@ function spawnDancers(n, forcedChore, { lead = null } = {}) {
     const src = assets[kind];
     const ready = rec && peopleCache.get(rec.file)?.holder;
     const obj = ready ? skeletonClone(ready) : makeMannequin();
-    const ry = (Math.random() - .5) * (chore.sync === 'разнобой' ? 0.5 : 0.1);   // position and turn toward the reel come from arrangeStage
+    const ry = (Math.random() - .5) * 0.12;                // position and turn toward the reel come from arrangeStage
     const mixer = new THREE.AnimationMixer(obj);
-    let idx = chore.sync === 'разнобой' ? pickDance(src.clips, rec && rec.dances) : groupClip % src.clips.length;
-    // models with fragile skinning dance only their own list (dances in people.json, chosen by test/e2e/dance-fit.js):
-    // the second Modi's vest is welded to his hands, and on wide-armed dances the hand drags a piece of vest along
-    if (rec && rec.dances && !rec.dances.includes(src.clips[idx].name)) idx = pickDance(src.clips, rec.dances);
-    const raw = src.clips[idx];
-    let clip = raw;
-    if (ready) {
-      try { clip = bakeRetarget(rec, kind, idx) || rotationOnly(raw); }
-      catch (e) { console.warn('[ИИндус] переназначение танца не вышло:', rec.file, e.message); clip = rotationOnly(raw); }
-    }
-    const action = mixer.clipAction(clip);
-    action.timeScale = chore.sync === 'разнобой' ? 0.9 + Math.random() * 0.35 : groupSpeed;
-    action.time = chore.sync === 'унисон' ? 0
-      : chore.sync === 'канон' ? (i / n) * clip.duration        // a wave: each dancer starts with an offset
-      : Math.random() * clip.duration;
-    action.play();
     // every dancer looks different: clothes and hair get their own colour.
     // Stars (Modi, Spider-Man, the policeman) are not recoloured so they stay recognisable.
     let who;
@@ -1852,18 +1857,71 @@ function spawnDancers(n, forcedChore, { lead = null } = {}) {
       // the set of models plus recoloured clothes and hair on ordinary (non-star) people.
       if (!rec.featured && rec.file !== 'police.glb' && !rec.noDye) recolorPerson(obj);
     } else who = dressUp(obj, forcedCostume, kind);
-    obj.scale.setScalar(chore.sync === 'разнобой' ? 0.92 + Math.random() * 0.16 : 0.97 + Math.random() * 0.06);   // in a routine heights are more even
-    if (isLead) { obj.rotation.y = 0; obj.scale.setScalar(1.05); action.timeScale = 0.75; who += '/солист'; }
+    obj.scale.setScalar(0.95 + Math.random() * 0.1);
+    if (isLead) { obj.rotation.y = 0; obj.scale.setScalar(1.05); who += '/солист'; }
     scene.add(obj);
     // soft shadow under a dancer: on a backdrop photo people look like they float without it
     const shadow = new THREE.Mesh(DANCER_SHADOW_GEO, new THREE.MeshBasicMaterial({ map: blobTexture(), transparent: true, depthWrite: false, opacity: 0.5 }));
     shadow.rotation.x = -Math.PI / 2; shadow.position.set(obj.position.x, 0.005, obj.position.z);
     scene.add(shadow);
-    dancers.push({ obj, mixer, who, base: obj.scale.x, lead: !!isLead, file: rec && rec.file, shadow, hips: boneMap(obj).Hips || null, ry, mannequin: !ready });
+    dancers.push({ obj, mixer, who, base: obj.scale.x, lead: !!isLead, file: rec && rec.file, rec, kind, ready: !!ready, shadow,
+      hips: boneMap(obj).Hips || null, ry, mannequin: !ready, action: null, row: undefined });
     if (rec && peopleCache.has(rec.file)) peopleCache.get(rec.file).usedAt = performance.now();
   }
-  arrangeStage();
-  console.debug(`[ИИндус] композиция: ${chore.formation}, ${chore.sync}`);
+  arrangeStage();                                          // places everyone and calls compose()
+  console.debug(`[ИИндус] сцена: ${chore.scene}`);
+}
+
+// put a move on a dancer: retargeted for real models, as is for mannequins; unchanged if it already dances it
+function setDance(d, idx, time, speed) {
+  const src = assets[d.kind] || assets.m;
+  let clip = src.clips[idx];
+  if (d.ready) {
+    try { clip = bakeRetarget(d.rec, d.kind, idx) || rotationOnly(clip); }
+    catch (e) { console.warn('[ИИндус] переназначение танца не вышло:', d.rec.file, e.message); clip = rotationOnly(clip); }
+  }
+  if (d.action && d.action.getClip() === clip) return;
+  d.mixer.stopAllAction();
+  const a = d.mixer.clipAction(clip);
+  a.timeScale = speed;
+  a.time = ((time % clip.duration) + clip.duration) % clip.duration;
+  a.play();
+  d.action = a; d.dance = src.clips[idx].name;
+}
+// Moves by zone once arrangeStage knows the rows. The front group dances the lead routine in unison, or as two crews
+// in a battle split by the side of the stage. It is row 0, plus row 1 when row 0 holds fewer than four free dancers
+// (on a narrow screen the reel leaves little room up front); when the back does the stadium wave, only if at least
+// four people are left for it.
+// The next row does the middle move, the rows behind it the back moves in turn. The stadium wave runs from left to
+// right: dancers further left are further into the move. Other crowd moves get a little human jitter.
+// Models with a list of allowed moves (people.json: dances) always keep their own: the second Modi only claps.
+function compose() {
+  if (!chore || !assets) return;
+  const clips = assets.m.clips;
+  const on = dancers.filter((d) => d.placed && !d.lead);
+  const xs = on.map((d) => d.obj.position.x);
+  const x0 = xs.length ? Math.min(...xs) : 0, x1 = xs.length ? Math.max(...xs) : 1;
+  const rows = [...new Set(on.map((d) => d.row ?? 0))].sort((a, b) => a - b);
+  const inRows = (k0) => on.filter((d) => rows.indexOf(d.row ?? 0) >= k0).length;
+  const free0 = on.filter((d) => (d.row ?? 0) === rows[0] && !d.rec?.dances).length;
+  const wave = chore.back.some((i) => clips[i]?.name === 'crowd_wave');
+  const nFront = free0 < 4 && rows.length >= 4 && (!wave || inRows(3) >= 4) ? 2 : 1;
+  for (const d of dancers) {
+    let idx, speed = chore.speed;
+    if (d.lead) { setDance(d, chore.front, 0, 0.75); continue; }
+    const k = Math.max(0, rows.indexOf(d.row ?? 0));
+    if (k < nFront) idx = chore.frontB !== chore.front && d.obj.position.x > 0 ? chore.frontB : chore.front;
+    else if (k === nFront) idx = chore.middle;
+    else idx = chore.back[(k - nFront - 1) % chore.back.length];
+    if (d.rec && d.rec.dances && !d.rec.dances.includes(clips[idx].name)) idx = clipFor(rnd(d.rec.dances));
+    const name = clips[idx].name;
+    let time = 0;
+    if (name.startsWith('crowd_')) {
+      speed = 1;                                             // authored on the beat
+      time = name === 'crowd_wave' ? (1 - (d.obj.position.x - x0) / Math.max(1e-3, x1 - x0)) * WAVE_SPAN : Math.random() * 0.12;
+    }
+    setDance(d, idx, time, speed);
+  }
 }
 // Cows live apart from the dancers. Their built-in animations are unusable: the Cow Dance clip is recorded on a
 // biped skeleton (Bip01) and makes the cow rear up, the Polish cow spins its root bone and hangs upside down.
@@ -2890,7 +2948,7 @@ async function start({ id = 0, score, rect }) {
     // animals: big ones far in the background, the chimp at the edge of the stage (before the dancers, so the layout counts it)
     if (settings.animals !== false) await spawnAnimals(pickAnimals(theme.name).filter((r) => !lead || r.place !== 'crowd')); else clearBeasts();
     if (!running) return;
-    spawnDancers(Math.max(MIN_PEOPLE, Math.min(G.maxDancers, settings.dancers | 0)), lead ? { formation: rnd(['два_ряда', 'шеренга', 'полукруг']), sync: 'канон' } : null, { lead });
+    spawnDancers(Math.max(MIN_PEOPLE, Math.min(G.maxDancers, settings.dancers | 0)), null, { lead });
     evictPeople(new Set(dancers.map((d) => d.file)));
     if (lead) startShow(dancers.find((d) => d.lead));
     if (settings.traffic !== false) spawnTraffic(theme.name); else clearTraffic();
@@ -2990,7 +3048,12 @@ Object.defineProperty(window, '__iindu', { value: { audio, get running() { retur
   cowPose(x, psi, freeze) { cowFreeze = !!freeze; cows.forEach((c, i) => { c.x = x + i * 2.6; c.psi = psi; c.obj.position.x = c.x; c.shadow.position.x = c.x; c.obj.rotation.set(0, psi, 0); }); return cows.length; },
   get chore() { return chore; },
   spawnGods(n, file) { return (async () => { if (file) { const r = people.find((p) => p.file === file); clearGods(); if (r) { const keep = people; people = [r]; await spawnGods(1); people = keep; } } else await spawnGods(n || 2); return gods.length; })(); },
-  spawnChore(formation, sync, n) { spawnDancers(n || settings.dancers, { formation, sync }); return chore; },
+  spawnChore(scene, n) { spawnDancers(n || settings.dancers, scene); return chore; },
+  // hand height over the head, in metres, per placed dancer: positive when a hand is raised overhead
+  get hands() { const v = new THREE.Vector3(); return dancers.filter((d) => d.placed).map((d) => { d.obj.updateMatrixWorld(true); const M = boneMap(d.obj);
+    const y = (n) => (M[n] ? M[n].getWorldPosition(v).y : NaN);
+    return [d.dance, +d.obj.position.x.toFixed(2), +(Math.max(y('LeftHand'), y('RightHand')) - y('Head')).toFixed(2), +(d.action?.time ?? 0).toFixed(2)]; }); },
+  get scene() { return chore && { scene: chore.scene, moves: dancers.filter((d) => d.placed).map((d) => [d.row, d.who, d.dance, +d.obj.position.x.toFixed(2)]) }; },
   spawnCows(n, file) { forcedPerson = file || null; return spawnCows(n || 2).then(() => { forcedPerson = null; return cows.map((c) => c.file); }); },
   spawnPerson(file, n, first = 0) { forcedPerson = file; return (async () => { const rec = people.find((p) => p.file === file); if (!rec) return 'нет такой';
     await loadPerson(rec); clearDancers(); const loaded = peopleCache.get(file);

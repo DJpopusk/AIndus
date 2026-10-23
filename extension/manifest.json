@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AIndus",
-  "version": "0.24.0",
+  "version": "1.0.0",
   "description": "Модель ИИндус смотрит рилсы вместе с тобой. Увидела индуса — индийская музыка и танцующие модельки на экране.",
   "minimum_chrome_version": "116",
   "permissions": [
